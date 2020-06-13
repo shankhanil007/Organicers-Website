@@ -1,0 +1,199 @@
+body{
+	margin:0;
+	font-family: sans-serif;
+	background-color: white;
+}
+*{
+	box-sizing: border-box;
+}
+
+.container{
+	max-width: 1000px;
+	margin: auto;
+}
+.gallery{
+	width: 100%;
+	float: left;
+	padding:30px 15px;
+}
+.gallery .title h1{
+	font-size:36px;
+	margin:0 0 30px;
+	color:#000000;
+	text-align: left;
+}
+.gallery .gallery-items .item{
+	float: left;
+	width:24%;
+	margin: 2px;
+	position: relative;
+}
+.gallery .gallery-items .hide{
+	display: none;
+}
+
+.gallery .gallery-items .item{
+	height: 15rem;
+	width: 14rem;
+}
+.gallery .gallery-items .item img{
+	height: 100%;
+	width: 100%;
+}
+.gallery .gallery-items iframe{
+	height: 100%;
+	width: 100%;
+}
+.gallery .gallery-items .show{
+	display: block;
+	animation: show .5s ease;
+}
+@keyframes show{
+    0%{
+    	opacity:0;
+    	transform: scale(0.9);
+    }
+    100%{
+    	opacity:1;
+    	transform: scale(1);
+    }
+}
+
+.divider{
+	display: block;
+	text-align: center;
+}
+.divider img{
+	width: 46%;
+	height: 7rem;
+}
+.gallery .gallery-items .item img{
+	width: 100%;
+	display: block;
+}
+.gallery .gallery-items .item iframe{
+	width: 100%;
+	display: block;
+}
+.gallery .gallery-items .item .caption{
+	position: absolute;
+	left:0px;
+	bottom:0;
+	background-color: rgba(0,0,0,.5);
+	padding:10px;
+	width: 100%;
+	color:#ffffff;
+	text-align: center;
+}
+.gallery .pagination{
+	width: 100%;
+	float: left;
+	padding:15px;
+	text-align: left;
+}
+.gallery .pagination div{
+	display: inline-block;
+	margin:0 10px;
+}
+.gallery .pagination .page{
+	color:gray;
+}
+.gallery .pagination .prev,.gallery .pagination .next{
+ color:#000;
+ border:1px solid #000;
+ font-size:15px;
+ padding:7px 15px;
+ cursor: pointer;
+}
+
+.gallery .pagination .prev.disabled,
+.gallery .pagination .next.disabled{
+	border-color: gray;
+	color:gray;
+	pointer-events: none;
+}
+
+
+/* Video Pagination*/
+
+.videocontainer{
+	max-width: 1000px;
+	margin: auto;
+}
+.videogallery{
+	width: 100%;
+	float: left;
+	padding:30px 15px;
+}
+.videogallery .videotitle h1{
+	font-size:36px;
+	margin:0 0 30px;
+	color:#000000;
+	text-align: left;
+}
+.videogallery .videogallery-items .videoitem{
+	float: left;
+	width:24%;
+	margin: 2px;
+	position: relative;
+}
+.videogallery .videogallery-items .videohide{
+	display: none;
+}
+
+.videogallery .videogallery-items .videoitem{
+	height: 15rem;
+	width: 14rem;
+}
+.videogallery .videogallery-items .videoitem iframe{
+	height: 100%;
+	width: 100%;
+}
+.videogallery .videogallery-items .videoshow{
+	display: block;
+	animation: show .5s ease;
+}
+@keyframes videoshow{
+    0%{
+    	opacity:0;
+    	transform: scale(0.9);
+    }
+    100%{
+    	opacity:1;
+    	transform: scale(1);
+    }
+}
+
+.videogallery .videogallery-items .videoitem iframe{
+	width: 100%;
+	display: block;
+}
+
+.videogallery .videopagination{
+	width: 100%;
+	float: left;
+	padding:15px;
+	text-align: left;
+}
+.videogallery .videopagination div{
+	display: inline-block;
+	margin:0 10px;
+}
+.videogallery .videopagination .videopage{
+	color:gray;
+}
+.videogallery .videopagination .videoprev,.videogallery .videopagination .videonext{
+ color:#000;
+ border:1px solid #000;
+ font-size:15px;
+ padding:7px 15px;
+ cursor: pointer;
+}
+
+.videogallery .videopagination .videoprev .videodisabled,
+.videogallery .videopagination .videonext .videodisabled{
+	border-color: gray;
+	color:gray;
+	pointer-events: none;
+}
+
