@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Organicers</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="confirm.css">
+
+    <script type="text/javascript">
+        
+      function fun()
+      {
+        var url = new URLSearchParams(window.location.search);
+        var userid = url.get('uid');
+        var usertoken = url.get('token');
+        console.log(userid+" "+usertoken);
+        var p1 = document.querySelectorAll('input')[0].value;
+        var p2 = document.querySelectorAll('input')[1].value;
+        var obj = {
+             uid: userid,
+             token: usertoken,
+             new_password1: p1,
+             new_password2: p2,
+        }
+
+        var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "http://35.184.138.248.xip.io:8000/rest-auth/password/reset/confirm/", true); 
+            xhttp.setRequestHeader("Content-Type", "application/json");
+            xhttp.onload = function(){
+               console.log(xhttp);
+               if(xhttp.status>=200&&xhttp.status<400)
+               {
+                console.log(xhttp);
+                var msg = JSON.parse(xhttp.responseText);
+                // alert(msg.detail);
+                  alert(msg.detail);
+               }
+               else
+               {
+                var obj2 = JSON.parse(xhttp.responseText);
+                var msg="";
+                if('uid' in obj2)
+                    msg+=obj2.uid+"\n";
+                if('token' in obj2)
+                    msg+="Invalid value of token"+"\n";
+                if('new_password1' in obj2)
+                    msg+="New Password "+obj2.new_password1+"\n";
+                if('new_password2' in obj2)
+                    msg+="Confirm Password "+obj2.new_password2;
+                alert(msg);
+                // console.log(msg);
+                // alert(msg.email     );
+                console.log("We connected to the server, but it returned an error.");
+                console.log(xhttp);
+               }
+            };
+            xhttp.send(JSON.stringify(obj));
+      }
+
+
+
+
+
+
+
+    </script>
+
+</head>
+<body>
+    
+     <!-- navbar begins -->
+     <!-- navbar ends -->
+    
+
+
+    <div class="container-fluid">
+     
+     <div class="ele">
+     	<h1>Reset Password Form</h1>
+     	<div class="main-ele" id="resetacc">
+     		<h1>Enter New Details</h1>
+     		<!-- <p>Enter your registered Email id and a verification mail shall be sent to reset your password</p> -->
+
+            <!-- <form action="" method=""> -->
+                <div class="inpbox">
+            	<input type="password" name="new_password1" placeholder="New Password" id="regmail" required="">
+                </div>
+                <div class="inpbox">
+                <input type="password" name="new_password2" placeholder="Confirm Password" id="regmail" required="">
+                </div>
+            	<button onclick="fun()" name="mybtn">Reset my Password</button>
+            <!-- </form> -->
+
+     	</div>
+
+
+
+     </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+     <!-- footer begins -->
+     <!-- footer ends -->
+
+
+
+
+
+
+
+
+
+
+     <script src="https://kit.fontawesome.com/9101386b36.js" crossorigin="anonymous"></script>
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
