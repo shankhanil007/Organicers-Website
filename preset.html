@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Organicers</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="preset.css">
+
+    <script type="text/javascript">
+    	function fun(){var x = document.getElementById("regmail").value;
+    	 	var obj = {
+    	 		email: x,
+    	 	};
+    	 	var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "http://35.184.138.248.xip.io:8000/rest-auth/password/reset/", true); 
+            xhttp.setRequestHeader("Content-Type", "application/json");
+            xhttp.onload = function(){
+               console.log(xhttp);
+               if(xhttp.status>=200&&xhttp.status<400)
+               {
+               	console.log(xhttp);
+               	var msg = JSON.parse(xhttp.responseText);
+               	alert(msg.detail);
+               	  console.log("you would have recieved a mail");
+               }
+               else
+               {
+               	var msg = JSON.parse(xhttp.responseText);
+               	alert(msg.email 	);
+               	console.log("We connected to the server, but it returned an error.");
+               	console.log(xhttp);
+               }
+            };
+            xhttp.send(JSON.stringify(obj));
+}
+
+
+
+
+    </script>
+</head>
+<body>
+    
+     <!-- navbar begins -->
+     <!-- navbar ends -->
+    
+
+
+    <div class="container-fluid">
+     
+     <div class="ele">
+     	<h1>Reset Password Form</h1>
+     	<div class="main-ele" id="resetacc">
+     		<h1>Forgot Password</h1>
+     		<p>Enter your registered Email id and a verification mail shall be sent to reset your password</p>
+
+            <!-- <form action="" method=""> -->
+            	<input type="email" name="email" placeholder="Your Registered Email.." id="regmail">
+            	<button onclick="fun()" name="mybtn">Reset my Password</button>
+            <!-- </form> -->
+
+     	</div>
+
+
+
+     </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+     <!-- footer begins -->
+     <!-- footer ends -->
+
+
+
+
+
+
+
+
+
+
+     <script src="https://kit.fontawesome.com/9101386b36.js" crossorigin="anonymous"></script>
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
