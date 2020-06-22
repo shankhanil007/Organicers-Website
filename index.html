@@ -17,426 +17,120 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <style>
-  /* Remove the navbar's default margin-bottom and rounded borders */ 
-
-  .navbar {
-    margin-bottom: 0;
-    border-radius: 0;
-    font-size: 1.3rem;
-    font-family: sans-serif;
-    height: 10.5rem!important;
-  }
-  
-  /* Add a gray background color and some padding to the footer */
- /* footer {
-    background-color: #f2f2f2;
-    padding: 25px;
-  }*/
-  .jumbotron {
-  padding-top: 290px;
-  padding-bottom: 290px;
-  margin-bottom: 0px;
-}
-
-#about
-{
-  
-  text-align: center;
-  background-color: #02a8a8;  
-  color: #fff;
-}
-
-.myjumbotron{
-  background-color: black;
-  padding: 3% 6%;
-}
-
-.row{
-  margin-bottom: 1rem;
-  width: 100%;
-  display: flex;
-}
-.col-sm-3 {
-  width: 20%;
-  height: 184px;
-}
-/*.img-responsive{
-  height: 84%;
-}*/
-/*.foo{
-  max-width: 22rem;
-  text-align: left;
-  margin:10px;
-}
-.containerfooter{
-  display: flex;
-  width: 100%;
-  margin: 0 auto;
-}
-.footerf{
-  background-color: white;
-  width: 100%;
-  margin-top: -6rem;
-}
-.sectionf{
-  width: 20%;
-}*/
-
-#cate{
-  padding: 6% 10%;
-  font-family: sans-serif;
-}
-
-
-#team{
-  background-color: black;
-  padding: 7% 10%;
-}
-
-
-#footer{
-   padding: 3% 6%;
-   /*font-size: 1.5rem;*/
-   font-family: sans-serif;
-   /*line-height: 1rem;*/
-
-}
-
-
-.font-weight-bold{
-  font-weight: bolder;
-  font-size: 1.8rem;
-
-}
-
-.list-unstyled{
-  list-style: none;
-  text-decoration: none;
-  font-size: 1.3rem;
-}
-
-.list-unstyled li a{
-  text-decoration: none;
-  color: black;
-}
-
-
-#cta
-{
-  text-align: center;
-  background-color: #fff;
-  color: black;
-  font-weight: bold;
-  /*font-family: "Montserrat-Black"*/
-}
-
-
-.dbtn
-{
-  margin: 1% 3% 1% 0;
-}
-
-.navbar-collapse{
-      background-color: #f8f9fa!important;  
-}
-
-.top{
-  width: 100%;
-  height: 4%;
-  background: black;
-  color: #fff;
-  font-family: sans-serif;
-}
-
-.nav-link{
-  color: black!important;
-   /*padding-right: 2.5rem;*/
-    font-size: 1.7rem;
-     font-weight: bold;
-}
-
-.signup{
-  width: 100%;
-  height: 100vh;
-  background-color: #e5e5e5;
-  z-index: 9999;
-  display: none;
-}
-
-.login{
-  width: 100%;
-  height: 100vh;
-  background-color: #e5e5e5;
-  z-index: 9999;
-  display: none;
-}
-
-
-
-/*this is part for login and signup*/
-
-.box
-{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    max-width: 500px;
-    width: 90%;
-    padding: 40px;
-    background: rgba(0,0,0,0.8);
-    box-sizing: border-box;
-    box-shadow: 30px 30px 25px rgba(0,0,0,.5) , 20px 20px 10px rgba(1,1,1,0.5) inset;
-    border-radius: 15px;
-}
-
-.box h2
-{
-    margin: 0 0 30px;
-    padding: 0;
-    color:#fff;
-    text-align: center;
-}
-
-.box .inputbox
-{
-    position: relative;
-}
-.box .inputbox input 
-{
-    width: 100%;
-    padding: 10px 0;
-    font-size: 16px;
-    color:#fff;
-    margin-bottom: 30px;
-    border: none;
-    border-bottom: 1px solid #fff;
-    outline: none;
-    background: transparent;
-    
-}
-
-.box .inputbox label
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px 0;
-    font-size: 16px;
-    color:#fff;
-    pointer-events: none;
-    transition: .5s;
-}
-
-.box .inputbox input:focus ~ label,
-.box .inputbox input:valid ~ label
-{
-    top: -18px;
-    left: 0;
-    color: #03a9f4;
-    font-size: 12px;
-}
-
-.box input[type="submit"]
-{
-    background: transparent;
-    border: none;
-    outline: none;
-    colour: #fff;
-    background: #03a9f4;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-.box a{
-    color: black;
-}
-
-.box a button
-{
-    background: transparent;
-    border: none;
-    outline: none;
-    colour: #fff;
-    background: #03a9f4;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-
-
-.containerlogin {
-  width: 360px;
-  height: 600px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  color: white;
-  text-align: center;
-}
-.containerlogin h1{
-  font-size: 40px;
-  margin-bottom:60px ;
-  color: black;  
-  margin-top: 125px;
-  line-height: 0.4;
-}
-.tbox {
-  width: 260px;
-  height: 40px;
-  background : black;
-  border-radius: 10px;
-  margin: 10px auto;
-}
-.tbox input {
-  background: none;
-  border: none;
-  text-align: center;
-  outline: none;
-  width: 90%;
-  line-height: 37px;
-  font-family: "Montserrat",sans-serif;
-  font-size: 14px;
-  color: #fff;
-}
-.btnlogin {
-  width: 26rem;
-  height: 6rem;
-  background : black;
-  border-radius: 10px;
-  margin: 14px auto;
-  display: block;
-  font-family: "Montserrat",sans-serif;
-  font-size: 2.5rem;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-
-.loginicons1{
-  color: blue;
-  font-size: 4rem;
-  margin-right: 2%;
-  margin-left: 2%;
-  cursor: pointer;
-}
-
-.loginicons2{
-  color: red;
-  font-size: 4rem;
-  margin-right: 2%;
-  margin-left: 2%;
-  cursor: pointer;
-}
-
-.loginicons3{
-  color: red;
-  font-size: 4rem;
-  margin-right: 2%;
-  margin-left: 2%;
-  cursor: pointer;
-}
-
-
-/*this is part for login and signup*/
-
-
-/*here slider starts*/
-.demo a {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  z-index: 2;
-  display: inline-block;
-  -webkit-transform: translate(0, -50%);
-  transform: translate(0, -50%);
-  color: #fff;
-  font : normal 400 20px/1 'Josefin Sans', sans-serif;
-  letter-spacing: .1em;
-  text-decoration: none;
-  transition: opacity .3s;
-}
-.demo a:hover {
-  opacity: .5;
-}
-
-
-
-#section01 a {
-  padding-top: 60px;
-}
-#section01 a span {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 24px;
-  height: 24px;
-  margin-left: -12px;
-  border-left: 1px solid #fff;
-  border-bottom: 1px solid #fff;
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  box-sizing: border-box;
-}
-
-
-
-/*here slider ends*/
-
-
-
-
-/*@media only screen and (max-width: 765px) {
-  .togg {
-    display: block ruby;
-  }
-}*/
-
-
-
-
-</style>
+  <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
 
 
 
 <script type="text/javascript">
-  var a=0,b=0;
   function fun() {
-    a++;
     var x = document.getElementById("signupdiv");
-    var y = document.getElementById("logindiv");
-    if(a%2==1)
-    {
-     x.style.display = "block";
-     y.style.display = "none";
-    }
-    else
-    x.style.display = "none";
+    x.style.display="block";
+    x.style.position="fixed";
+    var a= document.getElementsByClassName("top");
+    a[0].style.display="none";
+    var z = document.getElementsByTagName("section");
+    for(i=0;i<z.length;i++)
+      z[i].style.display="none";
   }
 
   function fun2(){
-    b++;
     var x = document.getElementById("logindiv");
-    var y = document.getElementById("signupdiv");
-    if(b%2==1)
-    {
-     x.style.display = "block";
-     y.style.display="none";
-    }
-    else
-    x.style.display = "none";
+    x.style.display="block";
+    x.style.position="fixed";
+    var a= document.getElementsByClassName("top");
+    a[0].style.display="none";
+    var z = document.getElementsByTagName("section");
+    for(i=0;i<z.length;i++)
+      z[i].style.display="none";
   }
 
   $(function() {
-  $('a[href*=#]').on('click', function(e) {
-    e.preventDefault();
-    $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
+    $('a[href*=#]').on('click', function(e) {
+      e.preventDefault();
+      $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
+    });  
   });
-});
+
+  function fun3(){
+    var x = document.getElementById("logindiv");
+    var y = document.getElementById("signupdiv");
+    x.style.display="none";
+    y.style.display="none";
+    var a= document.getElementsByClassName("top");
+    a[0].style.display="block"; 
+    var z = document.getElementsByTagName("section");
+    for(i=0;i<z.length;i++)
+      z[i].style.display="block";
+  }
+
+
+  function register()
+  {
+    
+    var obj = Array.from(document.querySelectorAll('#signupdiv input')).reduce((acc,input)=>({...acc,[input.name]:input.value}),{});
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://35.184.138.248.xip.io:8000/rest-auth/registration/", true); 
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.onload = function(){
+      console.log(JSON.parse(xhttp.response));
+      if(xhttp.status>=200 && xhttp.status<400)
+      {
+        
+         console.log(JSON.parse(xhttp.response));
+        fun3();
+        alert(" Congo!! Verification mail has been sent to your registered mail-id.");
+        // alert(obj2.detail); 
+     }
+     else{
+       console.log("We connected to the server, but it returned an error.");
+       var obj2 = JSON.parse(xhttp.responseText);
+       console.log(obj2);
+       var msg="";
+       // these all are the errors
+       if("username" in obj2)
+        msg+=obj2["username"]+"\n";
+       if("email" in obj2)
+        msg+=obj2["email"]+"\n";
+       if("password1" in obj2)
+        msg+=obj2["password1"]+"\n";
+       if("non_field_errors" in obj2)
+        msg+=obj2["non_field_errors"];
+      alert(msg);
+     }
+   };
+   xhttp.send(JSON.stringify(obj));
+ }
+
+
+
+
+ function signin(){
+    var obj = Array.from(document.querySelectorAll('#logindiv input')).reduce((acc,input)=>({...acc,[input.name]:input.value}),{});
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://35.184.138.248.xip.io:8000/rest-auth/login/", true); 
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.onload = function(){
+      console.log(JSON.parse(xhttp.response));
+      if(xhttp.status>=200 && xhttp.status<400)
+      {
+        
+         console.log(JSON.parse(xhttp.response));
+        // fun3();
+        alert("welcome");
+        // alert(obj2.detail); 
+     }
+     else{
+       console.log("We connected to the server, but it returned an error.");
+       var obj2 = JSON.parse(xhttp.responseText);
+       alert(obj2["non_field_errors"]);
+       console.log(obj2["non_field_errors"]);
+     }
+   };
+   xhttp.send(JSON.stringify(obj));
+
+ }  
+
+
 </script>
 </head>
 <body>
@@ -452,17 +146,19 @@
 
    <!-- this is for login -->
    <div class="login" id="logindiv">
+    <i class="fas fa-times-circle closebtn" onclick="fun3()"></i>
    <div class="containerlogin">
     <h1>LOGIN</h1>
-    <form action="signup.php" method="post">
+    <form action="signup.php" method="post" id="loginform">
       <div class="tbox">
-        <input type="text" placeholder="registered email" value="" name="a" required>
+        <input type="text" placeholder="username" value="" name="username" required>
       </div>
       <div class="tbox">
-        <input type="password" placeholder="refferal code" value="" name="b" required>
+        <input type="password" placeholder="password" value="" name="password" required>
       </div>
-      <input class="btnlogin" type="submit" name="c" value="Submit">
+      <input class="btnlogin" type="button" name="c" value="Submit" onclick="signin()">
     </form>
+    <a class="btn btn-lg btn-secondary" href="preset.html">Forgot Password?</a>
     <center><p style="color: black;">Or..</p></center>
     <!-- these are other login options -->
     <i class="fab fa-facebook loginicons1"></i>
@@ -481,30 +177,32 @@
     <!-- this is for signup -->
 
     <div class="signup" id="signupdiv">
-       <!-- copied -->
+
+       <i class="fas fa-times-circle closebtn" onclick="fun3()"></i>
+      
        <div class="box">
             <h2>Signup</h2>
             
-            <form action="data.php"  method="" id="contactForm">
+            <form action=""  method="POST" id="contactForm">
 
                 <div class="inputbox">
-                    <input type="text" name="a" required>
-                    <label>Name</lable>
+                    <input type="text" name="username" required>
+                    <label>Username</lable>
                 </div>
                 <div class="inputbox">
-                    <input type="text" name="c" required>
-                    <label>Age</lable>
-                </div>
-                <div class="inputbox">
-                    <input type="text" name="d" required>
-                    <label>Phone Number  <small style="font-size: 10px;">(along with country code)</small></lable>
-                </div>
-                <div class="inputbox">
-                    <input type="email" name="e" required>
+                    <input type="email" name="email" required>
                     <label>Email</lable>
+                </div>
+                <div class="inputbox">
+                    <input type="password" name="password1" required>
+                    <label>Password<small style="font-size: 10px;">(along with country code)</small></lable>
+                </div>
+                <div class="inputbox">
+                    <input type="password" name="password2" required>
+                    <label>Confirm Password</lable>
                     
                 </div>
-                <input type="submit" name="submit" value="Submit">
+                <input type="button" class="btn btn-lg btn-primary" name="submit" value="Submit" onclick="register()">
                 <br>
                 <div class="inputbox">
                     <label></lable>
@@ -520,7 +218,7 @@
                 </div>
             </form>
         </div>
-       <!-- copied -->
+      
     </div>
 
 
