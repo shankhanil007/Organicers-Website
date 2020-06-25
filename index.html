@@ -72,7 +72,7 @@
     xhttp.open("POST", "http://35.184.138.248.xip.io:8000/rest-auth/registration/", true); 
     xhttp.setRequestHeader("Content-Type", "application/json");
     xhttp.onload = function(){
-      console.log(JSON.parse(xhttp.response));
+      console.log(xhttp);
       if(xhttp.status>=200 && xhttp.status<400)
       {
         
@@ -110,12 +110,17 @@
     xhttp.open("POST", "http://35.184.138.248.xip.io:8000/rest-auth/login/", true); 
     xhttp.setRequestHeader("Content-Type", "application/json");
     xhttp.onload = function(){
-      console.log(JSON.parse(xhttp.response));
+      console.log(xhttp);
       if(xhttp.status>=200 && xhttp.status<400)
       {
         
          console.log(JSON.parse(xhttp.response));
         // fun3();
+        // localStorage.removeItem("auth");
+        localStorage.clear();
+        var x = JSON.parse(xhttp.responseText).key;
+         localStorage.setItem("auth", x);
+
         alert("welcome");
         // alert(obj2.detail); 
      }
