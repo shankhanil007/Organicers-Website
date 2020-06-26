@@ -2,302 +2,293 @@
 <html>
 <head>
 	<title>The Organicers</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="shortcut icon" type="image/png" href="images/avatar1.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9101386b36.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="events.js"></script>
     <link rel="stylesheet" type="text/css" href="events.css">
-    <style type="text/css">
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-    .container{
-       border-radius: 5px;
-       border: 4px solid #f3c623;
-       margin-top: 4%;
-   }
-
-   h1{
-      text-align: center;
-      font-weight: 700;
-      color: blue;
-      font-family: 'Poppins', sans-serif;
-      margin-top: 2%;
-      margin-bottom: 2%;
-      font-size: 3em;
-      color: #b1b493;
-      margin-top: 2%;
-  }
-
-  .linebreak{
-      margin-top: 2%;
-      margin-bottom: 2%;
-      font-weight: bold;
-      width: 95%;
-  }
-
-
-  .inpbox{
-     margin-top: 2%;
-     margin-bottom: 4%;
-     margin-left: 25%;
- }
-
- .inpbox label{
-     font-size: 2em;
-     margin-right: 1em;
-
- }
-
- .inpbox input{
-   /*border:none;*/
-   padding: 2% 2%;
-   border: none;
-   /*color: #fff;*/
-   font-family: sans-serif;
-   background-color:   #e8ead3;
-   color: blue;
-   width: 16em;
-}
-
-.inpbox textarea{
-	/*border:none;*/
-	padding: 2% 2%;
-    border: none;
-    /*color: #fff;*/
-    font-family: sans-serif;
-    background-color:   #e8ead3;
-    color: blue;
-}
-
-
-.form{
-   position: relative;
-   margin-top: 2%;
-   margin-bottom: 2%;
-   box-sizing: border-box;
-   border: 1px solid black;  
-   overflow: hidden;
-}
-
-.form a{
-    position: relative;
-    left: 40%;
-    margin-top: 10%;
-    display: none;
-}
-
-.form p{
-   display: none;
-
-}
-
-
-@media (max-width: 991px){
-  h1{
-   font-size: 2em;
-}
-
-img{
-   height: 100%;
-   width: 65%;
-}
-
-
-}
-
-
-@media (max-width: 396px)
-{
-  .inpbox{
-   margin-left: 0;
-}
-
-.inpbox label{
-   font-size: 1em;
-}
-
-h1{
-   font-size: 1.7em;
-}
-}
-
-
-
-
-</style>
-
-<script type="text/javascript">
-    	// var form = document.getElementById("myform");
-    	
-    	function fun(){
-            var x = document.querySelectorAll("input");
-            var name= x[0].value;
-            var enotes = x[1].value;
-            var ebud = x[2].value;
-            var ecnum = parseInt(x[3].value);
-            var ednt = x[4].value;
-            var obj = {
-              organiser_name: name,
-              notes: enotes,
-              budget: ebud,
-              contact_number: ecnum,
-              dateandtime: ednt,
-            // user_id:"43",
-        }
-        console.log(obj);
-
-
-        var xhttp = new XMLHttpRequest();
-        xhttp.open("POST", "http://35.184.138.248.xip.io:8000/api/event/", true); 
-        xhttp.setRequestHeader("Content-Type", "application/json");
-        var autho = localStorage.getItem("auth");
-        if(autho==null)
-        {
-            alert("You are not logged in");
-        }
-        else{
-
-
-            xhttp.setRequestHeader("Authorization", "Token "+autho);
-            xhttp.onload = function(){
-                console.log(xhttp);
-                if(xhttp.status>=200&&xhttp.status<400)
-                {
-                    console.log(xhttp);
-                    console.log("your  event has registered");
-                    var x = JSON.parse(xhttp.responseText).id;
-                    alert("Congo your event has been registered. \n Your event Id is "+x+"\n Remember this Id for all future references");
-                    fun2();
-                }
-                else
-                {
-                    // console.log(xhttp);
-                    // var msg = JSON.parse(xhttp.responseText);
-                    // alert(msg.email  );
-                    console.log("We connected to the server, but it returned an error.");
-                    console.log(xhttp);
-                    var obj2 = JSON.parse(xhttp.responseText);
-                    var msg="";
-                    if('organiser_name' in obj2)
-                        msg+=obj2.organiser_name+"\n";
-                    if('notes' in obj2)
-                        msg+=obj2.notes+"\n";
-                    if('budget' in obj2)
-                        msg+=obj2.budget+"\n";
-                    if('contact_number' in obj2)
-                        msg+=obj2.contact_number+"\n";
-                    if('dateandtime' in obj2)
-                        msg+=obj2.dateandtime;
-                    alert(msg);
-                }
-            };
-            xhttp.send(JSON.stringify(obj));
-
-        }
-
-
-
-
-    }
-
-    function fun2(){
-        var x = document.querySelectorAll(".inpbox");
-        for(i=0;i<x.length;i++)
-            x[i].style.display="none";
-        var y = document.querySelector("button").style.display = "none";
-        var a = document.querySelector(".form p").style.display="block";
-        var b = document.querySelector(".form a").style.display="block";
-    }
-
-    function submitFeedBack()
-    {
-
-     var obj = Array.from(document.querySelectorAll('.form-group input')).reduce((acc,input)=>({...acc,[input.name]:input.value}),{});
-     var autho = localStorage.getItem("auth");
-     if(autho==null)
-     {
-        alert("You are not logged in");
-    }
-    else{
-        var xhttp = new XMLHttpRequest();
-        xhttp.open("POST", "http://35.184.138.248.xip.io:8000/api/testimonial/", true); 
-        xhttp.setRequestHeader("Content-Type", "application/json");
-        xhttp.setRequestHeader("Authorization", "Token "+autho);
-        xhttp.onload = function(){
-           console.log(xhttp);
-           if(xhttp.status>=200 && xhttp.status<400)
-           {
-             alert(" Congratulations!! Verification mail has been sent to your registered mail-id.");
-             window.location.href=  "events.html";
-                   // alert(obj2.detail); 
-               }
-               else{
-                  console.log("We connected to the server, but it returned an error.");
-                  console.log(xhttp);
-                  var msg="";
-                  var obj2 = JSON.parse(xhttp.responseText);
-                  if('client_name' in obj2)
-                    msg+="Name may not be blank."+"\n";
-                if('rating' in obj2)
-                    msg+="A valid Integer is required in Rating Field"+"\n";
-                if('organisereventid' in obj2)
-                    msg+="Id may not be blank"+"\n";
-                if('description' in obj2)
-                    msg+="Desfription may not be blank"+"\n";
-                alert(msg);
-            }
-                };//onload ends
-                xhttp.send(JSON.stringify(obj));
-            }// else ends
-      }// fun ends
-
-
-
-
-
-
-  </script>
+    
 </head>
 <body>
+    <!-- navbar starts -->
 
+    <div class="container-fluid top mx-auto">
+    <p style="margin-top: 0.5%;">
+      <span style="padding-right: 35%;"><i class="fas fa-envelope-square" style="font-size: 2rem;"></i>&nbsp;&nbsp;&nbsp;&nbsp;akram@theorganicers.com</span>
+      <span style="padding-right: 33%;"><i class="fas fa-phone-alt"></i>&nbsp;&nbsp;&nbsp;+91-9508226093</span>
+    </p>
+  </div>
+  <!-- top black bar ends -->
+  <!-- navbar begins -->
+  <section id="header">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#"><img src="images/logo.png" style="position: relative;top: -31px;width: 100px;height: 100px;"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="aboutus/index.html">ABOUT US</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="eventandservice/index.html">EVENTS &amp; SERVICES</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">OUR CLIENTS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="portfolio/index.html">PORTFOLIO</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="testimonial/index.html">TESTIMONIALS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contactus/index.html">CONTACT</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+
+
+
+    
+  </section>
+
+
+    <!-- navbar ends -->
+
+    <!-- some info on the page -->
+    <div class="jumbotron">
+        <h1 class="display-4" style="margin-top: 0; margin-bottom: 0; padding-top: 3%; padding-bottom: 1%;">Hello, User</h1>
+      <p class="lead" style="padding-bottom: 7%;">This is a simple events page to show all the present and past events that you had registered with us. In this document , you have the whole and sole right to add or delete your registerations . Also in any case feel free to provide your valueable feedback as it would be necessary for us so that we can thrive to serve you better in the future.</p>
+
+
+
+  </div>
+   
+   <!-- here the list of event starts -->
+    <section class="eventlist">
+     <div class="container" id="regevents">
+         
+     </div>
+    </section>
+   <!-- here the list of event ends -->
+
+
+     
+
+
+
+
+
+
+   <!-- registeration form starts -->
+   <section class="registeration-form">
+    <i class="fas fa-times-circle closebtn" onclick="fun4()"></i>
     <div class="container">
-      <h1>Event Registeration Form</h1>
-      <hr class="linebreak">
+       <h1>Event Registeration Form</h1>
+       <hr class="linebreak">
       <div class="row">
        <div class="col-md-6 col-sm-6">
           <img src="images/img9.jpg">
+       </div>
+       <div class="col-md-6 col-sm-6">
+          <p style="font-size: 1.5em;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+        </div>
       </div>
-      <div class="col-md-6 col-sm-6">
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-      </div>
-  </div>
   <hr class="linebreak">
-  <div class="form col-sm-12">
-    <!-- <form id="myform"> -->
+       <div class="form col-sm-12">
         <center><p style="font-size: 2em;">Thank You For Working With Us</p></center>
         <a type="button" id="loginmodalbutton">
             <span class="fa fa-comments-o"></span>Feedback
         </a>
         <div class="inpbox">
           <label>Organicer Name:</label><input type="text" name="organiser_name" placeholder="Organicer Name">
-      </div>
-      <div class="inpbox">
-       <label>Notes:</label><input name="notes" placeholder="Notes" style="margin-right: "></input>
+        </div>
+        <div class="inpbox">
+         <label>Notes:</label><input name="notes" placeholder="Notes" style="margin-right: "></input>
+        </div>
+        <div class="inpbox">
+         <label>Budget:</label><input type="number" name="budget" placeholder="Budget" style="margin-right: ">
+        </div>
+        <div class="inpbox">
+         <label>Contact Number:</label><input type="text" name="contact_number" placeholder="Contact number">
+        </div>
+        <div class="inpbox">
+            <label>Date and Time:</label><input type="datetime-local" id="meeting-time"
+            name="dateandtime" value=""
+            min="2018-06-07T00:00" max="2025-06-14T00:00">
+        </div>         
+       <center><button class="btn btn-lg btn-warning" onclick="fun()" style="font-size: 2.25em;">Submit</button></center> 
+     </div>
    </div>
-   <div class="inpbox">
-      <label>Budget:</label><input type="number" name="budget" placeholder="Budget" style="margin-right: ">
-  </div>
-  <div class="inpbox">
-      <label>Contact Number:</label><input type="text" name="contact_number" placeholder="Contact number">
-  </div>
-  <div class="inpbox">
-      <label>Date and Time:</label><input type="datetime-local" id="meeting-time"
-      name="dateandtime" value=""
-      min="2018-06-07T00:00" max="2025-06-14T00:00">
-  </div>         
-  <center><button class="btn btn-lg btn-warning" onclick="fun()">Submit</button></center> 
-  <!-- </form> -->
-</div>
-</div>
+  </section>
+<!-- registeration form ends -->
 
+
+<!-- footer starts -->
+<section id="cta">
+
+      <button type="button" class="btn btn-dark btn-lg dbtn"><i class="fab fa-apple"></i>&nbsp;Download</button>
+      <button type="button" class="btn btn-dark btn-lg   dbtn"><i class="fab fa-google-play"></i>&nbsp;Download</button>
+
+    </section>
+
+<section id="footer">
+    <footer class="page-footer font-small indigo">
+      <div class="container text-center text-md-left">
+        <!-- Grid row -->
+        <div class="row">
+
+          <!-- Grid column -->
+          <div class="col-md-3 mx-auto">
+            
+            <!-- Links -->
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">GET TO KNOW US</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">ABOUT US</a>
+              </li>
+              <li>
+                <a href="#!">TERMS AND CONDITIONS</a>
+              </li>
+              <li>
+                <a href="#!">REFUND POLICY</a>
+              </li>
+              <li>
+                <a href="#!">PRIVACY POLICY</a>
+              </li>
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+          <hr class="clearfix w-100 d-md-none">
+
+          <!-- Grid column -->
+          <div class="col-md-3 mx-auto">
+
+            <!-- Links -->
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">HELP</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">FAQs</a>
+              </li>
+              <li>
+                <a href="#!">CONTACT US</a>
+              </li>
+              <li>
+                <a href="#!">VENDOR CONNECT</a>
+              </li>
+              <!-- <li>
+                <a href="#!"></a>
+              </li> -->
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- <hr class="clearfix w-100 d-md-none"> -->
+
+
+          <hr class="clearfix w-100 d-md-none">
+
+          <!-- Grid column -->
+          <div class="col-md-3 mx-auto">
+
+            <!-- Links -->
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">CONNECT WITH US</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">FACEBOOK</a>
+              </li>
+              <li>
+                <a href="#!">INSTAGRAM</a>
+              </li>
+              <li>
+                <a href="#!">LINKEDIN</a>
+              </li>
+              <li>
+                <a href="#!">TWITTER</a>
+              </li>
+            </ul>
+
+          </div>
+
+
+          <hr class="clearfix w-100 d-md-none">
+
+
+
+
+
+
+          <!-- Grid column -->
+          <div class="col-md-3 mx-auto">
+
+            <!-- Links -->
+            <h4 class="font-weight-bold text-uppercase mt-3 mb-4">REGISTERED ADDRESS</h4>
+            <!-- <h4>Registered Address</h4> -->
+            <p class="card-text" style="word-wrap: anywhere; font-size: 1.5rem;">APKRITMY Pvt. Ltd.<br>Argora Bypass Road<br>
+              Shivdayal Harmu Housing Colony,
+              <br>Ranchi, Jharkhand<br>
+            CIN:U74993JH2018PTC011404</p>
+            
+
+          </div>
+          <!-- Grid column -->
+
+          
+          <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+      </div>
+      <!-- Footer Links -->
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3" style="font-size: 1rem;">© 2020 Copyright:
+        <a href="#"> TheOrganicers.com</a>
+      </div>
+      <!-- Copyright -->
+
+    </footer>
+<!-- Footer -->     
+
+
+
+
+
+
+   </section>
+
+
+
+
+
+<!-- footer ends -->
 
 <!-- sunny code -->
 <div id="feedBackModal" class="modal fade" role="dialog">
@@ -378,10 +369,10 @@ h1{
 <!-- sunny code -->
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/9101386b36.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
 </body>
 </html>
