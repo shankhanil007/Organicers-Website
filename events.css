@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+  /*navbar styking starts*/
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+    font-size: 1.3rem;
+    font-family: sans-serif;
+    height: 10.5rem!important;
+  }
+
+  .navbar-collapse{
+      background-color: #f8f9fa!important;  
+}
+
+.top{
+  width: 100%;
+  height: 4%;
+  background: black;
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.nav-link{
+  color: black!important;
+   /*padding-right: 2.5rem;*/
+    font-size: 1.7rem;
+     font-weight: bold;
+}
+
+/*navbar styking ends*/
+
+.jumbotron{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.jumbotron p{
+    display: inline-block;
+}
+
+/*footer style*/
+#footer{
+   padding: 3% 6%;
+   /*font-size: 1.5rem;*/
+   font-family: sans-serif;
+   /*line-height: 1rem;*/
+
+}
+
+
+.font-weight-bold{
+  font-weight: bolder;
+  font-size: 1.8rem;
+
+}
+
+.list-unstyled{
+  list-style: none;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+
+.list-unstyled li a{
+  text-decoration: none;
+  color: black;
+}
+
+
+#cta
+{
+  text-align: center;
+  background-color: #fff;
+  color: black;
+  font-weight: bold;
+  /*font-family: "Montserrat-Black"*/
+}
+
+
+.dbtn
+{
+  margin: 1% 3% 1% 0;
+}
+
+/*footer style*/
+
+    .registeration-form{
+       border-radius: 5px;
+       border: 4px solid #f3c623;
+       margin-top: 4%;
+       margin-bottom: 2%;
+       display: none;
+   }
+
+   h1{
+      text-align: center;
+      font-weight: 700;
+      color: blue;
+      font-family: 'Poppins', sans-serif;
+      margin-top: 2%;
+      margin-bottom: 2%;
+      font-size: 6em;
+      color: #b1b493;
+      margin-top: 2%;
+  }
+
+  .linebreak{
+      margin-top: 2%;
+      margin-bottom: 2%;
+      font-weight: bold;
+      width: 95%;
+  }
+
+
+  .inpbox{
+     margin-top: 2%;
+     margin-bottom: 4%;
+     margin-left: 25%;
+ }
+
+ .inpbox label{
+     font-size: 3em;
+     margin-right: 1em;
+
+ }
+
+ .inpbox input{
+   /*border:none;*/
+   padding: 2% 2%;
+   border: none;
+   /*color: #fff;*/
+   font-family: sans-serif;
+   background-color:   #e8ead3;
+   color: blue;
+   width: 16em;
+   font-size: 1.5em;
+}
+
+.inpbox textarea{
+    /*border:none;*/
+    padding: 2% 2%;
+    border: none;
+    /*color: #fff;*/
+    font-family: sans-serif;
+    background-color:   #e8ead3;
+    color: blue;
+}
+
+
+.form{
+   position: relative;
+   margin-top: 2%;
+   margin-bottom: 2%;
+   box-sizing: border-box;
+   border: 1px solid black;  
+   overflow: hidden;
+}
+
+.form a{
+    position: relative;
+    left: 40%;
+    margin-top: 10%;
+    display: none;
+}
+
+.form p{
+   display: none;
+
+}
+
+
+@media (max-width: 991px){
+  h1{
+   font-size: 2.8em;
+}
+
+img{
+   height: 100%;
+   width: 65%;
+}
+
+
+}
+
+
+@media (max-width: 396px)
+{
+  .inpbox{
+   margin-left: 0;
+}
+
+.inpbox label{
+   font-size: 2em;
+}
+
+h1{
+   font-size: 2.3em;
+}
+}
+
+
+.eventlist .container{
+    border-radius: 5px;
+       border: 4px solid #f3c623;
+       margin-top: 4%;
+       margin-bottom: 2%;
+       /*display: none;*/
+}
+
+
+#regevents h2{
+    display: inline-block;
+    margin-right: 2%;
+}
+
+.eventdetails{
+    font-size: 2em;
+    display: inline-block;
+    margin-left: 2%;
+}
+
+.fa-plus-circle{
+    font-size: 3em;
+    cursor: pointer;
+    transition-duration: 500ms;
+}
+
+.fa-plus-circle:hover{
+    transform: scale(1.5);
+    margin-bottom: 2%;
+}
+
+.myevent{
+    margin-bottom: 2%;
+}
+
+.closebtn{
+  position: relative;
+  top: 2%;
+  margin-left: 95%;
+  margin-top: 2%;
+  /*border-radius: 100%;*/
+  font-size: 4rem;
+  outline: none!important;
+  cursor: pointer;
+}
