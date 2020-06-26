@@ -120,6 +120,8 @@
         localStorage.clear();
         var x = JSON.parse(xhttp.responseText).key;
          localStorage.setItem("auth", x);
+        var username = obj.username;
+        localStorage.setItem("userid", username);
 
         alert("welcome");
         // alert(obj2.detail); 
