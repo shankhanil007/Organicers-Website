@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
   /*navbar styking starts*/
 .navbar {
     margin-bottom: 0;
@@ -168,13 +169,17 @@
 
 }
 
+.form img{
+    display: none;
+}
+
 
 @media (max-width: 991px){
   h1{
    font-size: 2.8em;
 }
 
-img{
+.regimghead{
    height: 100%;
    width: 65%;
 }
@@ -211,6 +216,12 @@ h1{
 #regevents h2{
     display: inline-block;
     margin-right: 2%;
+}
+
+#regevents h3
+{
+    font-family: 'Titillium Web', sans-serif;
+    margin-top: 2%;
 }
 
 .eventdetails{
