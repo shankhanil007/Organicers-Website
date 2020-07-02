@@ -39,26 +39,29 @@ function renderhtml(data,pagenumber,pagesize)
        res+="<p style='font-size:4rem;'>"+ obj.title +"</p>";
        res+="<p style='font-size:2rem;'>"+  obj.desc +"</p>";
        res+="<div class='row'>";
+       
        console.log(data["results"].length);
          for(j=0; j<data["results"].length;j++)
          {
-          res+="<div class='col-lg-3 col-md-6'>";
+          res+="<div style='height:20rem;'class='col-lg-3 col-md-6'>";
           // console.log(data["results"][j].img);
-          res+="<img src='" + data["results"][j].img + "' >";
+          res+="<img style='width:100%;height:100%' src='" + data["results"][j].img + "' >";
           res+="</div>";
          }
          //if images are less than 4
          for(j=0;j<4-data["results"].length;j++)
          {
-          res+="<div class='col-lg-3 col-md-6'>"
-          res+="<img src='" + data["results"][0].img + "' >";
+          res+="<div style='height:20rem;' class='col-lg-3 col-md-6'>"
+          res+="<img style='width:100%;height:100%' src='" + data["results"][0].img + "' >";
           res+="</div>";
          }
+
        res+="</div>";
     }
 
 
     res+="<br><br>";
+    res+="<div class='row'><div style='margin: auto;'class='col-6'>"
     for( i=0;i<Math.ceil(cnt/pagesize);i++)
     {
       if((i+1)==pagenumber)
@@ -66,7 +69,7 @@ function renderhtml(data,pagenumber,pagesize)
       else
         res+="<button class='btn btn-primary bslide' value='"+ (i+1) +"' id = '"+ (i+1) +"' onclick='req("+(i+1)+","+pagesize+")'>"+ (i+1) +"</button>";
     }
-
+    res+="</div></div>"
     res+="</div>";
     x.innerHTML = res;
 }
