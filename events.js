@@ -8,7 +8,7 @@ ourRequest.setRequestHeader("Authorization", "Token "+autho);
 ourRequest.onload = function(){
   if(ourRequest.status>=200 && ourRequest.status<400)
   {
-     alert("conn established");
+     // alert("conn established");
      var data = JSON.parse(ourRequest.responseText);
      cnt = data.count;
      renderhtml(data);
@@ -33,7 +33,7 @@ function renderhtml(data)
    if(data["results"].length==0)
    {
       s+="<center><h2>You haven't registered any events with us</h2></center>";
-      s+="<center><i class='fas fa-plus-circle' onclick='fun3()'></i></center>";
+      s+="<center><i class='fas fa-plus-circle' title='Register New Event' data-toggle='tooltip' onclick='fun3()'></i></center>";
    }
    else
    {
@@ -45,22 +45,39 @@ function renderhtml(data)
      {
         if(data["results"][i].organiser_name==userid)
         {
-           s+="<li>";
-           s+="<div class='jumbotron myevent'>";
-           s+="<center><p style='font-size:3em; font-weight:800;'>Event: #"+ (k++) +"</p><br>";
-           s+="<h2>Organicer Name:</h2><p class='eventdetail'>"+data["results"][i].organiser_name+"</p><br>";
-           s+="<h2>Event Id:</h2><p class='eventdetail'>"+data["results"][i].id+"</p><br>";
-           s+="<h2>Notes:</h2><p class='eventdetail'>"+data["results"][i].notes+"</p><br>";
-           s+="<h2>Budget:</h2><p class='eventdetail'>"+data["results"][i].budget+"</p><br>";
-           s+="<h2>Contact Number:</h2><p class='eventdetail'>"+data["results"][i].contact_number+"</p><br>";
-           s+="<h2>Date and Time of event:</h2><p class='eventdetail'>"+data["results"][i].dateandtime+"</p><br>";
-           s+="<h2>Status: </h2><p class='eventdetail'>"+data["results"][i].status+"</p><br>";
-           s+="</center></div>";
-           s+="</li>";
+            if(data["results"][i].status==='COMPLETED'){
+                s+="<li>";
+                s+="<div class='jumbotron myevent'>";
+                s+="<center><p style='font-size:3em; font-weight:800;'>Event: #"+ (k++) +"</p><br>";
+                s+="<h2>Organicer Name:</h2><p class='eventdetail'>"+data["results"][i].organiser_name+"</p><br>";
+                s+="<h2>Event Id:</h2><p class='eventdetail'>"+data["results"][i].id+"</p><br>";
+                s+="<h2>Notes:</h2><p class='eventdetail'>"+data["results"][i].notes+"</p><br>";
+                s+="<h2>Budget:</h2><p class='eventdetail'>"+data["results"][i].budget+"</p><br>";
+                s+="<h2>Contact Number:</h2><p class='eventdetail'>"+data["results"][i].contact_number+"</p><br>";
+                s+="<h2>Date and Time of event:</h2><p class='eventdetail'>"+data["results"][i].dateandtime+"</p><br>";
+                s+="<h2>Status: </h2><p class='eventdetail'>"+data["results"][i].status+"</p><br>";
+                s+="<button class='loginmodalbutton btn btn-secondary'  data-toggle='modal' data-target='#feedBackModal' >FeedBack</button>"
+                s+="</center></div>";
+                s+="</li>";
+            }else{
+                s+="<li>";
+                s+="<div class='jumbotron myevent'>";
+                s+="<center><p style='font-size:3em; font-weight:800;'>Event: #"+ (k++) +"</p><br>";
+                s+="<h2>Organicer Name:</h2><p class='eventdetail'>"+data["results"][i].organiser_name+"</p><br>";
+                s+="<h2>Event Id:</h2><p class='eventdetail'>"+data["results"][i].id+"</p><br>";
+                s+="<h2>Notes:</h2><p class='eventdetail'>"+data["results"][i].notes+"</p><br>";
+                s+="<h2>Budget:</h2><p class='eventdetail'>"+data["results"][i].budget+"</p><br>";
+                s+="<h2>Contact Number:</h2><p class='eventdetail'>"+data["results"][i].contact_number+"</p><br>";
+                s+="<h2>Date and Time of event:</h2><p class='eventdetail'>"+data["results"][i].dateandtime+"</p><br>";
+                s+="<h2>Status: </h2><p class='eventdetail'>"+data["results"][i].status+"</p><br>";
+                s+="</center></div>";
+                s+="</li>";
+            }
+           
         }
      }
      s+="</ul>";
-     s+="<center><i class='fas fa-plus-circle' onclick='fun3()'></i></center>";
+     s+="<center><i class='fas fa-plus-circle' title='Register New Event' data-toggle='tooltip' onclick='fun3()'></i></center>";
    }
     re.innerHTML = s;
 }
@@ -164,7 +181,12 @@ function fun(){
             x[i].style.display="none";
         var y = document.querySelector(".btn-warning").style.display = "none";
         var a = document.querySelector(".form p").style.display="block";
-        var b = document.querySelector(".form a").style.display="block";
+        var img = document.querySelector(".form img").style.display="block";
+        // var b = document.querySelector(".form a").style.display="block";
+        setTimeout(function(){ 
+         window.location.href=  "events.html";
+         }, 3000);
+        // var b = document.querySelector(".form a").style.display="block";
     }
    //  submitFeedBack is for feedback popup
     function submitFeedBack()
