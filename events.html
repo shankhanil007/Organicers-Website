@@ -21,6 +21,7 @@
     
 </head>
 <body>
+
     <!-- navbar starts -->
 
     <div class="container-fluid top mx-auto">
@@ -79,12 +80,10 @@
     <div class="jumbotron">
         <h1 class="display-4" style="margin-top: 0; margin-bottom: 0; padding-top: 3%; padding-bottom: 1%;">Hello, User</h1>
       <p class="lead" style="padding-bottom: 7%;">This is a simple events page to show all the present and past events that you had registered with us. In this document , you have the whole and sole right to add or delete your registerations . Also in any case feel free to provide your valueable feedback as it would be necessary for us so that we can thrive to serve you better in the future.</p>
-
+      
 
 
   </div>
-
-
    
    <!-- here the list of event starts -->
     <section class="eventlist">
@@ -110,7 +109,7 @@
        <hr class="linebreak">
       <div class="row">
        <div class="col-md-6 col-sm-6">
-          <img class="regimghead" src="images/img9.jpg">
+          <img src="images/img9.jpg">
        </div>
        <div class="col-md-6 col-sm-6">
           <p style="font-size: 1.5em;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
@@ -125,8 +124,6 @@
         <!-- <a type="button" id="loginmodalbutton">
             <span class="fa fa-comments-o"></span>Feedback
         </a> -->
-        <!-- https://media.tenor.com/images/817596d6626736251eea50f61b9492a4/tenor.gif -->
-
         <div class="inpbox">
           <label>Organicer Name:</label><input type="text" name="organiser_name" placeholder="Organicer Name">
         </div>
@@ -357,29 +354,20 @@
 
 
 <!-- sunny code -->
-<script>
-    $(document).ready(function(){
 
-        $("#reservetablebutton").click(()=>{
-            $("#reservemodal").modal();
-        });
-        $("#loginmodalbutton").click(()=>{
-            $("#feedBackModal").modal();
-
-
-
-
-
-        })
-    });
-</script>
 <!-- sunny code -->
+<script type="text/javascript">
+  
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
 
+</script>
 
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/9101386b36.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
 </body>
 </html>
