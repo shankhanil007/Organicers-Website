@@ -4,77 +4,82 @@
 	<title>The Organicers</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="shortcut icon" type="image/png" href="images/avatar1.png">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!--   <link rel="stylesheet" href="style.css"> -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/9101386b36.js" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="events.js"></script>
     <link rel="stylesheet" type="text/css" href="events.css">
     
 </head>
 <body>
 
+
+
+
+
     <!-- navbar starts -->
 
-    <div class="container-fluid top mx-auto">
-    <p style="margin-top: 0.5%;">
-      <span style="padding-right: 35%;"><i class="fas fa-envelope-square" style="font-size: 2rem;"></i>&nbsp;&nbsp;&nbsp;&nbsp;akram@theorganicers.com</span>
-      <span style="padding-right: 33%;"><i class="fas fa-phone-alt"></i>&nbsp;&nbsp;&nbsp;+91-9508226093</span>
-    </p>
-  </div>
-  <!-- top black bar ends -->
-  <!-- navbar begins -->
-  <section id="header">
+    <header class="top-header" >
+        <div class="header_top">
+            
+            <div class="container">
+                <div class="row">
+                    <div class="logo_section">
+                        <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="image" style="position: relative;width: 110px;height: 85px;"></a>
+                    </div>
+                    <div class="site_information">
+                        <ul>
+                            <li><a class="contact_details" href="mailto:exchang@gmail.com"><img src="images/mail_icon.png" alt="#">   akram@theorganicers.com</a></li>
+                            <li><a class="contact_details" href="tel:exchang@gmail.com"><img src="images/phone_icon.png" alt="#">   +91-9508226093</a></li>
+                            <li><a class="join_bt" href="#" onclick="fun();">Sign Up</a></li>
+                            <li><a class="join_bt" href="#" onclick="fun2();">Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+        <div class="header_bottom">
+          
+            <div class="col-sm-12">
+                <div class="menu_orange_section" style="background: #ff880e;">
+                   <nav class="navbar header-nav navbar-expand-lg"> 
+                     <div class="menu_section">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
+                    <ul class="navbar-nav">
+                        <li><a class="nav-link active" href="#">Home</a></li>
+                        <li><a class="nav-link" href="#">Events & Services</a></li>
+                        <li><a class="nav-link" href="#">Our Clients</a></li>
+                        <li><a class="nav-link" href="#">Portfolio</a></li>
+                        <li><a class="nav-link" href="#">Testimonials</a></li>
+                        <li><a class="nav-link" href="#">About Us</a></li>
+                        <li><a class="nav-link" href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                     </div>
+                 </nav>
+            
+                </div>
+            </div>
+          
+        </div>
+        
+    </header>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#"><img src="images/logo.png" style="position: relative;top: -31px;width: 100px;height: 100px;"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="">HOME</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="aboutus/index.html">ABOUT US</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="eventandservice/index.html">EVENTS &amp; SERVICES</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">OUR CLIENTS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="portfolio/index.html">PORTFOLIO</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="testimonial/index.html">TESTIMONIALS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contactus/index.html">CONTACT</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+   <!-- navbar ends -->
 
 
 
 
-    
-  </section>
-
-
-    <!-- navbar ends -->
 
     <!-- some info on the page -->
     <div class="jumbotron">
@@ -148,17 +153,24 @@
 <!-- registeration form ends -->
 
 
-<!-- footer starts -->
-<section id="cta">
 
-      <button type="button" class="btn btn-dark btn-lg dbtn"><i class="fab fa-apple"></i>&nbsp;Download</button>
-      <button type="button" class="btn btn-dark btn-lg   dbtn"><i class="fab fa-google-play"></i>&nbsp;Download</button>
 
-    </section>
-
-<section id="footer">
-    <footer class="page-footer font-small indigo">
+  <!-- footer begins -->
+   <section id="footer" style="margin-top: 10px; background-color: #e9ecef;" >
+    <footer class="page-footer font-small indigo slideanim">
       <div class="container text-center text-md-left">
+        <div class="row">
+          <div class="col-md-8">
+              <img src="images/logo.png" style="position: relative; height: 100px; width: 100px;">
+          </div>
+          <div class="col-md-2" style="padding-top: 30px;">
+              <button type="button" class="btn btn-dark btn-lg dbtn"><i class="fab fa-apple"></i>&nbsp;Download</button>
+          </div>
+          <div class="col-md-2" style="padding-top: 30px;">
+              <button type="button" class="btn btn-dark btn-lg   dbtn"><i class="fab fa-google-play"></i>&nbsp;Download</button>
+          </div>
+        </div>
+        
         <!-- Grid row -->
         <div class="row">
 
@@ -166,7 +178,7 @@
           <div class="col-md-3 mx-auto">
             
             <!-- Links -->
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">GET TO KNOW US</h5>
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4" style="font-size: 15px; color: black;">GET TO KNOW US</h5>
 
             <ul class="list-unstyled">
               <li>
@@ -192,7 +204,7 @@
           <div class="col-md-3 mx-auto">
 
             <!-- Links -->
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">HELP</h5>
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4" style="font-size: 15px; color: black;">HELP</h5>
 
             <ul class="list-unstyled">
               <li>
@@ -221,7 +233,7 @@
           <div class="col-md-3 mx-auto">
 
             <!-- Links -->
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">CONNECT WITH US</h5>
+            <h6 class="font-weight-bold text-uppercase mt-3 mb-4" style="font-size: 15px; color: black;">CONNECT WITH US</h6>
 
             <ul class="list-unstyled">
               <li>
@@ -252,9 +264,9 @@
           <div class="col-md-3 mx-auto">
 
             <!-- Links -->
-            <h4 class="font-weight-bold text-uppercase mt-3 mb-4">REGISTERED ADDRESS</h4>
+            <h4 class="font-weight-bold text-uppercase mt-3 mb-4" style="font-size: 15px; color: black;">REGISTERED ADDRESS</h4>
             <!-- <h4>Registered Address</h4> -->
-            <p class="card-text" style="word-wrap: anywhere; font-size: 1.5rem;">APKRITMY Pvt. Ltd.<br>Argora Bypass Road<br>
+            <p class="card-text" style="word-wrap: anywhere;">APKRITMY Pvt. Ltd.<br>Argora Bypass Road<br>
               Shivdayal Harmu Housing Colony,
               <br>Ranchi, Jharkhand<br>
             CIN:U74993JH2018PTC011404</p>
@@ -272,27 +284,31 @@
       </div>
       <!-- Footer Links -->
 
-      <!-- Copyright -->
-      <div class="footer-copyright text-center py-3" style="font-size: 1rem;">© 2020 Copyright:
-        <a href="#"> TheOrganicers.com</a>
-      </div>
-      <!-- Copyright -->
-
     </footer>
-<!-- Footer -->     
-
-
-
-
-
-
    </section>
 
+</div>
+   <!-- Copyright -->
+        <div class="footer_bottom" style="background-color: black; color: grey; padding-top: 20px; padding-bottom : 20px;">
+          <div class="container">
+              <div class="row d-flex" style="justify-content:space-between;">
+                      <span>© 2019 Business . All Rights Reserved. </span>
+                      <span class="bottom_menu">Terms of Service</span>
+                      <span class="bottom_menu">Privacy</span>
+                      
+              </div>
+          </div>
+        </div>
+      <!-- Copyright -->
+
+
+   <!-- footer ends -->
 
 
 
 
-<!-- footer ends -->
+
+
 
 <!-- sunny code -->
 <div id="feedBackModal" class="modal fade" role="dialog">
@@ -344,18 +360,6 @@
 
 
 
-
-
-
-
-
-<!-- footer begins -->
-<!-- footer ends -->
-
-
-<!-- sunny code -->
-
-<!-- sunny code -->
 <script type="text/javascript">
   
 $(document).ready(function(){
@@ -364,10 +368,36 @@ $(document).ready(function(){
 
 </script>
 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/9101386b36.js" crossorigin="anonymous"></script>
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script>
+   (function($) {
+    "use strict";
+  
+
+  /* ..............................................
+    Fixed Navbar Menu
+    ................................................. */
+    
+  $(window).on('scroll', function () {
+    if ($(window).scrollTop() > 50) {
+      $('.top-header').addClass('fixed-menu');
+    } else {
+      $('.top-header').removeClass('fixed-menu');
+    }
+  });
+
+}(jQuery));
+</script>
+
+
+
+
+
 </body>
 </html>
