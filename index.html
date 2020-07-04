@@ -27,22 +27,29 @@
     var x = document.getElementById("signupdiv");
     x.style.display="block";
     x.style.position="fixed";
-    var a= document.getElementsByClassName("top");
-    a[0].style.display="none";
+    // var a= document.getElementsByClassName("top");
+    // a[0].style.display="none";
     var z = document.getElementsByTagName("section");
     for(i=0;i<z.length;i++)
       z[i].style.display="none";
+    document.querySelector(".top-header").style.display="none";
+    document.querySelector(".layout_padding").style.display="none";
+    document.querySelector(".footer_bottom").style.display="none";
   }
 
   function fun2(){
     var x = document.getElementById("logindiv");
     x.style.display="block";
     x.style.position="fixed";
-    var a= document.getElementsByClassName("top");
-    a[0].style.display="none";
+    // var a= document.getElementsByClassName("top");
+    // a[0].style.display="none";
     var z = document.getElementsByTagName("section");
     for(i=0;i<z.length;i++)
       z[i].style.display="none";
+    document.querySelector(".top-header").style.display="none";
+    document.querySelector(".layout_padding").style.display="none";
+    document.querySelector(".footer_bottom").style.display="none";
+
   }
 
   $(function() {
@@ -57,11 +64,14 @@
     var y = document.getElementById("signupdiv");
     x.style.display="none";
     y.style.display="none";
-    var a= document.getElementsByClassName("top");
-    a[0].style.display="block"; 
+    // var a= document.getElementsByClassName("top");
+    // a[0].style.display="block"; 
     var z = document.getElementsByTagName("section");
     for(i=0;i<z.length;i++)
       z[i].style.display="block";
+    document.querySelector(".top-header").style.display="block";
+    document.querySelector(".layout_padding").style.display="block";
+    document.querySelector(".footer_bottom").style.display="block";
   }
 
 
@@ -125,6 +135,7 @@
         localStorage.setItem("userid", username);
 
         alert("welcome");
+        window.location.href="index.html";
         // alert(obj2.detail); 
      }
      else{
@@ -138,6 +149,36 @@
 
  }  
 
+  function profile()
+  {
+     window.location.href="events.html";
+  }
+
+  function logout()
+  {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://35.184.138.248.xip.io:8000/rest-auth/logout/", true); 
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.onload = function(){
+      // console.log(xhttp);
+      if(xhttp.status>=200 && xhttp.status<400)
+      {
+        
+         console.log("you are logged out");
+         // alert("you are logged out");
+         localStorage.clear();
+         alert("You have successfully logged out!");
+         window.location.href="index.html";
+     }
+     else{
+       console.log("We connected to the server, but it returned an error.");
+       // var obj2 = JSON.parse(xhttp.responseText);
+       // alert(obj2["non_field_errors"]);
+       // console.log(obj2["non_field_errors"]);
+     }
+   };
+   xhttp.send();
+  }
 
 </script>
 </head>
@@ -267,6 +308,8 @@
                             <li><a class="contact_details" href="tel:exchang@gmail.com"><img src="images/phone_icon.png" alt="#">   +91-9508226093</a></li>
                             <li><a class="join_bt" href="#" onclick="fun();">Sign Up</a></li>
                             <li><a class="join_bt" href="#" onclick="fun2();">Login</a></li>
+                            <li><a class="join_bt" href="#" onclick="profile()" style="display: none;" onclick="">My Profile</a></li>
+                            <li><a class="join_bt" href="#" onclick="logout()" style="display: none;" onclick="">Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -286,13 +329,13 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
                     <ul class="navbar-nav">
-                        <li><a class="nav-link active" href="#">Home</a></li>
+                        <li><a class="nav-link active" href="index.html">Home</a></li>
                         <li><a class="nav-link" href="#">Events & Services</a></li>
                         <li><a class="nav-link" href="#">Our Clients</a></li>
-                        <li><a class="nav-link" href="#">Portfolio</a></li>
-                        <li><a class="nav-link" href="#">Testimonials</a></li>
-                        <li><a class="nav-link" href="#">About Us</a></li>
-                        <li><a class="nav-link" href="#">Contact Us</a></li>
+                        <li><a class="nav-link" href="portfolio/index.html">Portfolio</a></li>
+                        <li><a class="nav-link" href="testimonial/index.html">Testimonials</a></li>
+                        <li><a class="nav-link" href="aboutus/corporate.html">About Us</a></li>
+                        <li><a class="nav-link" href="contactus/index.html">Contact Us</a></li>
                     </ul>
                 </div>
                      </div>
@@ -861,6 +904,16 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <script>
+
+  var auth = localStorage.getItem("auth");
+  if(auth!=null)
+  {
+    document.querySelectorAll(".join_bt")[0].style.display="none";
+    document.querySelectorAll(".join_bt")[1].style.display="none";
+    document.querySelectorAll(".join_bt")[2].style.display="block";
+    document.querySelectorAll(".join_bt")[3].style.display="block";
+     
+  }
 
    (function($) {
     "use strict";
