@@ -230,3 +230,29 @@ function fun(){
                 xhttp.send(JSON.stringify(obj));
             }// else ends
       }// fun ends
+
+function logout()
+{
+  var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://35.184.138.248.xip.io:8000/rest-auth/logout/", true); 
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.onload = function(){
+      // console.log(xhttp);
+      if(xhttp.status>=200 && xhttp.status<400)
+      {
+        
+         console.log("you are logged out");
+         // alert("you are logged out");
+         localStorage.clear();
+         alert("You have successfully logged out!");
+         window.location.href="index.html";
+     }
+     else{
+       console.log("We connected to the server, but it returned an error.");
+       // var obj2 = JSON.parse(xhttp.responseText);
+       // alert(obj2["non_field_errors"]);
+       // console.log(obj2["non_field_errors"]);
+     }
+   };
+   xhttp.send();
+}
