@@ -987,7 +987,7 @@ padding: 7px 15px;
       font-family: 'Poppins', sans-serif;
       margin-top: 2%;
       margin-bottom: 2%;
-      font-size: 6em;
+      font-size: 4em;
       color: #b1b493;
       margin-top: 2%;
   }
@@ -1007,7 +1007,7 @@ padding: 7px 15px;
  }
 
  .inpbox label{
-     font-size: 3em;
+     font-size: 2em;
      margin-right: 1em;
 
  }
@@ -1062,9 +1062,24 @@ padding: 7px 15px;
 }
 
 
+
 @media (max-width: 991px){
+    h1{
+        font-size: 3em;
+    }
+  .regimghead{
+   height: 100%;
+   width: 65%;
+}
+
+
+
+}
+
+
+@media (max-width: 769px){
   h1{
-   font-size: 2.8em;
+   font-size: 2.5em;
 }
 
 .regimghead{
@@ -1072,11 +1087,15 @@ padding: 7px 15px;
    width: 65%;
 }
 
+.inpbox input{
+    font-size: 1.3em;
+}
+
 
 }
 
 
-@media (max-width: 396px)
+@media (max-width: 548px)
 {
   .inpbox{
    margin-left: 0;
@@ -1087,8 +1106,10 @@ padding: 7px 15px;
 }
 
 h1{
-   font-size: 2.3em;
+   font-size: 2.0em;
 }
+
+
 }
 
 
@@ -1136,7 +1157,7 @@ h1{
 .closebtn{
   position: relative;
   top: 2%;
-  margin-left: 95%;
+  margin-left: 84%;
   margin-top: 2%;
   /*border-radius: 100%;*/
   font-size: 4rem;
