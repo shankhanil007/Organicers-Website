@@ -43,8 +43,8 @@ function renderhtml(data)
      var k=1; 
      for(i=0;i<data["results"].length;i++)
      {
-        if(data["results"][i].organiser_name==userid)
-        {
+        // if(data["results"][i].organiser_name==userid)
+        // {
             if(data["results"][i].status==='COMPLETED'){
                 s+="<li>";
                 s+="<div class='jumbotron myevent'>";
@@ -74,7 +74,7 @@ function renderhtml(data)
                 s+="</li>";
             }
            
-        }
+        // }
      }
      s+="</ul>";
      s+="<center><i class='fas fa-plus-circle' title='Register New Event' data-toggle='tooltip' onclick='fun3()'></i></center>";
