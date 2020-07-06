@@ -909,3 +909,208 @@ padding: 7px 15px;
     transform: skew(-30deg);
     margin-top: 3px;
 }
+
+.signup{
+  width: 100%;
+  height: 100vh;
+  background-color: #e5e5e5;
+  z-index: 9999;
+  display: none;
+  /*opacity: 0.8;*/
+  position: absolute;
+  top: 0;
+}
+
+.login{
+  width: 100%;
+  height: 100vh;
+  background-color: #e5e5e5;
+  z-index: 9999;
+  display: none;
+  position: absolute;
+  top: 0;
+}
+
+
+
+/*this is part for login and signup*/
+
+.box
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    max-width: 500px;
+    width: 90%;
+    padding: 40px;
+    background: rgba(0,0,0,0.8);
+    box-sizing: border-box;
+    box-shadow: 30px 30px 25px rgba(0,0,0,.5) , 20px 20px 10px rgba(1,1,1,0.5) inset;
+    border-radius: 15px;
+}
+
+.box h2
+{
+    margin: 0 0 30px;
+    padding: 0;
+    color:#fff;
+    text-align: center;
+}
+
+.box .inputbox
+{
+    position: relative;
+}
+.box .inputbox input 
+{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color:#fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+    
+}
+
+.box .inputbox label
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color:#fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.box .inputbox input:focus ~ label,
+.box .inputbox input:valid ~ label
+{
+    top: -18px;
+    left: 0;
+    color: #03a9f4;
+    font-size: 12px;
+}
+
+.box input[type="submit"]
+{
+    background: transparent;
+    border: none;
+    outline: none;
+    colour: #fff;
+    background: #03a9f4;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.box a{
+    color: black;
+}
+
+.box a button
+{
+    background: transparent;
+    border: none;
+    outline: none;
+    colour: #fff;
+    background: #03a9f4;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+
+.containerlogin {
+  width: 360px;
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: white;
+  text-align: center;
+}
+.containerlogin h1{
+  font-size: 40px;
+  margin-bottom:60px ;
+  color: black;  
+  margin-top: 125px;
+  line-height: 0.4;
+}
+.tbox {
+  width: 260px;
+  height: 40px;
+  background : black;
+  border-radius: 10px;
+  margin: 10px auto;
+}
+.tbox input {
+  background: none;
+  border: none;
+  text-align: center;
+  outline: none;
+  width: 90%;
+  line-height: 37px;
+  font-family: "Montserrat",sans-serif;
+  font-size: 14px;
+  color: #fff;
+}
+.btnlogin {
+  width: 16rem;
+  height: 5rem;
+  background : black;
+  border-radius: 10px;
+  margin: 14px auto;
+  display: block;
+  font-family: "Montserrat",sans-serif;
+  font-size: 2.5rem;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+
+.loginicons1{
+  color: blue;
+  font-size: 4rem;
+  margin-right: 2%;
+  margin-left: 2%;
+  cursor: pointer;
+}
+
+.loginicons2{
+  color: red;
+  font-size: 4rem;
+  margin-right: 2%;
+  margin-left: 2%;
+  cursor: pointer;
+}
+
+.loginicons3{
+  color: red;
+  font-size: 4rem;
+  margin-right: 2%;
+  margin-left: 2%;
+  cursor: pointer;
+}
+
+.closebtn{
+      position: absolute;
+      top: 2%;
+      right: 2%;
+      /*border-radius: 100%;*/
+      font-size: 4rem;
+      outline: none!important;
+      transition-duration: 360ms;
+      cursor: pointer;
+    }
+
+    .closebtn:hover{
+      transform: rotate(45deg);
+    }
