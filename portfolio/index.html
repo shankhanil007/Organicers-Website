@@ -114,9 +114,247 @@ hr.style-seven:before { /* Not really supposed to work, but does */
 
   </style>
 
+  <script type="text/javascript">
+  function fun() {
+    var x = document.getElementById("signupdiv");
+    x.style.display="block";
+    x.style.position="fixed";
+    // var a= document.getElementsByClassName("top");
+    // a[0].style.display="none";
+    document.querySelector(".top-header").style.display="none";
+    document.querySelector(".cate").style.display="none";
+    document.querySelector("#footer").style.display="none";
+    document.querySelector("#heading").style.display="none";
+    document.querySelector(".footer_bottom").style.display="none";
+    document.querySelector("#imgpanel").style.display="none";
+    document.querySelector("#vidpanel").style.display="none";
+  }
+
+  function fun2(){
+    var x = document.getElementById("logindiv");
+    x.style.display="block";
+    x.style.position="fixed";
+    // var a= document.getElementsByClassName("top");
+    // a[0].style.display="none";
+    document.querySelector(".top-header").style.display="none";
+    document.querySelector(".cate").style.display="none";
+    document.querySelector("#footer").style.display="none";
+    document.querySelector("#heading").style.display="none";
+    document.querySelector(".footer_bottom").style.display="none";
+    document.querySelector("#imgpanel").style.display="none";
+    document.querySelector("#vidpanel").style.display="none";
+
+  }
+
+
+  function fun3(){
+    var x = document.getElementById("logindiv");
+    var y = document.getElementById("signupdiv");
+    x.style.display="none";
+    y.style.display="none";
+    // var a= document.getElementsByClassName("top");
+    // a[0].style.display="block"; 
+    document.querySelector(".top-header").style.display="block";
+    document.querySelector(".cate").style.display="block";
+    document.querySelector("#footer").style.display="block";
+    document.querySelector("#heading").style.display="block";
+    document.querySelector(".footer_bottom").style.display="block";
+    document.querySelector("#imgpanel").style.display="block";
+    document.querySelector("#vidpanel").style.display="block";
+  }
+
+
+  function register()
+  {
+    
+    var obj = Array.from(document.querySelectorAll('#signupdiv input')).reduce((acc,input)=>({...acc,[input.name]:input.value}),{});
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://35.184.138.248.xip.io:8000/rest-auth/registration/", true); 
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.onload = function(){
+      console.log(xhttp);
+      if(xhttp.status>=200 && xhttp.status<400)
+      {
+        
+         console.log(JSON.parse(xhttp.response));
+        fun3();
+        alert(" Congo!! Verification mail has been sent to your registered mail-id.");
+        // alert(obj2.detail); 
+     }
+     else{
+       console.log("We connected to the server, but it returned an error.");
+       var obj2 = JSON.parse(xhttp.responseText);
+       console.log(obj2);
+       var msg="";
+       // these all are the errors
+       if("username" in obj2)
+        msg+=obj2["username"]+"\n";
+       if("email" in obj2)
+        msg+=obj2["email"]+"\n";
+       if("password1" in obj2)
+        msg+=obj2["password1"]+"\n";
+       if("non_field_errors" in obj2)
+        msg+=obj2["non_field_errors"];
+      alert(msg);
+     }
+   };
+   xhttp.send(JSON.stringify(obj));
+ }
+
+
+
+
+ function signin(){
+    var obj = Array.from(document.querySelectorAll('#logindiv input')).reduce((acc,input)=>({...acc,[input.name]:input.value}),{});
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://35.184.138.248.xip.io:8000/rest-auth/login/", true); 
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.onload = function(){
+      console.log(xhttp);
+      if(xhttp.status>=200 && xhttp.status<400)
+      {
+        
+         console.log(JSON.parse(xhttp.response));
+        // fun3();
+        // localStorage.removeItem("auth");
+        localStorage.clear();
+        var x = JSON.parse(xhttp.responseText).key;
+         localStorage.setItem("auth", x);
+        var username = obj.username;
+        localStorage.setItem("userid", username);
+
+        alert("welcome");
+        window.location.href="index.html";
+        // alert(obj2.detail); 
+     }
+     else{
+       console.log("We connected to the server, but it returned an error.");
+       var obj2 = JSON.parse(xhttp.responseText);
+       alert(obj2["non_field_errors"]);
+       console.log(obj2["non_field_errors"]);
+     }
+   };
+   xhttp.send(JSON.stringify(obj));
+
+ }  
+
+  function profile()
+  {
+     window.location.href="../events.html";
+  }
+
+  function logout()
+  {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://35.184.138.248.xip.io:8000/rest-auth/logout/", true); 
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.onload = function(){
+      // console.log(xhttp);
+      if(xhttp.status>=200 && xhttp.status<400)
+      {
+        
+         console.log("you are logged out");
+         // alert("you are logged out");
+         localStorage.clear();
+         alert("You have successfully logged out!");
+         window.location.href="index.html";
+     }
+     else{
+       console.log("We connected to the server, but it returned an error.");
+       // var obj2 = JSON.parse(xhttp.responseText);
+       // alert(obj2["non_field_errors"]);
+       // console.log(obj2["non_field_errors"]);
+     }
+   };
+   xhttp.send();
+  }
+
+</script>
+
 </head>
    
 <body >
+
+  <!-- this is for login -->
+   <div class="login" id="logindiv">
+    <i class="fas fa-times-circle closebtn" onclick="fun3()"></i>
+   <div class="containerlogin">
+    <h1>LOGIN</h1>
+    <form action="signup.php" method="post" id="loginform">
+      <div class="tbox">
+        <input type="text" placeholder="username" value="" name="username" required>
+      </div>
+      <div class="tbox">
+        <input type="password" placeholder="password" value="" name="password" required>
+      </div>
+      <input class="btnlogin" type="button" name="c" value="Submit" onclick="signin()">
+    </form>
+    <a class="btn btn-lg btn-secondary" href="preset.html">Forgot Password?</a>
+    <!-- <center><p style="color: black;">Or..</p></center> -->
+    <!-- these are other login options -->
+   <!--  <i class="fab fa-facebook loginicons1"></i>
+    <i class="fas fa-envelope-square loginicons2"></i>
+    <i class="fab fa-google-plus-g loginicons3"></i> -->
+  </div>
+  </div>
+
+
+
+
+   <!-- this is for login -->
+
+
+
+    <!-- this is for signup -->
+
+    <div class="signup" id="signupdiv">
+
+       <i class="fas fa-times-circle closebtn" onclick="fun3()"></i>
+      
+       <div class="box">
+            <h2>Signup</h2>
+            
+            <form action=""  method="POST" id="contactForm">
+
+                <div class="inputbox">
+                    <input type="text" name="username" required>
+                    <label>Username</lable>
+                </div>
+                <div class="inputbox">
+                    <input type="email" name="email" required>
+                    <label>Email</lable>
+                </div>
+                <div class="inputbox">
+                    <input type="password" name="password1" required>
+                    <label>Password<small style="font-size: 10px;">(along with country code)</small></lable>
+                </div>
+                <div class="inputbox">
+                    <input type="password" name="password2" required>
+                    <label>Confirm Password</lable>
+                    
+                </div>
+                <input type="button" class="btn btn-lg btn-primary" name="submit" value="Submit" onclick="register()">
+                <br>
+                <div class="inputbox">
+                    <label></lable>
+                    <span class="error" > </span>     
+                        <br>
+                    <span class="error" > </span>     
+                        <br>
+                    <span class="error" > </span>     
+                        <br>
+                    <span class="error" > </span>    
+                        <br>
+                    <span class="error" > </span>     
+                </div>
+            </form>
+        </div>
+      
+    </div>
+
+
+
+    <!-- this is for login/signup -->
 
 
 
@@ -133,6 +371,10 @@ hr.style-seven:before { /* Not really supposed to work, but does */
                         <ul>
                             <li><a class="contact_details" href="mailto:exchang@gmail.com"><img src="images/mail_icon.png" alt="#">   akram@theorganicers.com</a></li>
                             <li><a class="contact_details" href="tel:exchang@gmail.com"><img src="images/phone_icon.png" alt="#">   +91-9508226093</a></li>
+                            <li><a class="join_bt" href="#" onclick="fun();">Sign Up</a></li>
+                            <li><a class="join_bt" href="#" onclick="fun2();">Login</a></li>
+                            <li><a class="join_bt" href="#" onclick="profile()" style="display: none;" onclick="">My Profile</a></li>
+                            <li><a class="join_bt" href="#" onclick="logout()" style="display: none;" onclick="">Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -158,18 +400,18 @@ hr.style-seven:before { /* Not really supposed to work, but does */
                             Events and Services
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="left: 106px; background: #ff880e;">
-                            <a class="dropdown-item" href="../aboutus/artist.html">Artistic Events</a>
-                            <a class="dropdown-item" href="../aboutus/birthdays.html">Birthdays</a>
-                            <a class="dropdown-item" href="../aboutus/corporate.html">Corporate Events</a>
-                            <a class="dropdown-item" href="../aboutus/cycling.html">Cycling</a>
-                            <a class="dropdown-item" href="../aboutus/promotional.html">Promotional Events</a>
-                            <a class="dropdown-item" href="../aboutus/wedding.html">Weddings</a>
+                            <a class="dropdown-item" href="../eventsandservices/artist.html">Artistic Events</a>
+                            <a class="dropdown-item" href="../eventsandservices/birthdays.html">Birthdays</a>
+                            <a class="dropdown-item" href="../eventsandservices/corporate.html">Corporate Events</a>
+                            <a class="dropdown-item" href="../eventsandservices/cycling.html">Cycling</a>
+                            <a class="dropdown-item" href="../eventsandservices/promotional.html">Promotional Events</a>
+                            <a class="dropdown-item" href="../eventsandservices/wedding.html">Weddings</a>
                           </div>
                         </li>
                         <li><a class="nav-link" href="#">Our Clients</a></li>
                         <li><a class="nav-link" href="index.html">Portfolio</a></li>
                         <li><a class="nav-link" href="../testimonial/index.html">Testimonials</a></li>
-                        <li><a class="nav-link" href="../eventsandservices/index.html">About Us</a></li>
+                        <li><a class="nav-link" href="../aboutus/index.html">About Us</a></li>
                         <li><a class="nav-link" href="../contactus/index.html">Contact Us</a></li>
                     </ul>
                 </div>
@@ -399,6 +641,16 @@ hr.style-seven:before { /* Not really supposed to work, but does */
 
 
   <script>
+
+    var auth = localStorage.getItem("auth");
+  if(auth!=null)
+  {
+    document.querySelectorAll(".join_bt")[0].style.display="none";
+    document.querySelectorAll(".join_bt")[1].style.display="none";
+    document.querySelectorAll(".join_bt")[2].style.display="block";
+    document.querySelectorAll(".join_bt")[3].style.display="block";
+     
+  }
     (function($) {
     "use strict";
   
