@@ -4,8 +4,9 @@ var pgno=1;
 var pgsz=12;
 var vdpgno=1;
 var vdpgsz=3;
-var x = document.getElementById("mypanel");
-var y = document.getElementsByClassName("cate");
+var x = document.getElementById("imgpanel");
+var y = document.getElementsByClassName("cate")[0];
+var z = document.getElementById("vidpanel");
 var ourRequest = new XMLHttpRequest();
 ourRequest.open("GET","http://35.184.138.248:8000/image/?categoryid="+cateinit+"&format=json&page="+pgno+"&page_size="+pgsz);
 ourRequest.onload = function(){
@@ -15,7 +16,7 @@ ourRequest.onload = function(){
      var data = JSON.parse(ourRequest.responseText);
      cnt = data.count;
      console.log(data);
-     renderhtml(data,cateinit,pgno,pgsz,vdpgsz);
+     renderhtml(data,cateinit,pgno,pgsz,vdpgno,vdpgsz);
      // rendervedio(cateinit,pgno,pgsz,vdpgsz);
      // alert("done");
      // renderhtml(data,pgno,pgsz);
@@ -31,180 +32,92 @@ ourRequest.onerror = function(){
 
 ourRequest.send();
 
-function renderhtml(data,cinit,pagenumber,pagesize,vediopagesize){
-  var res="";
-  var rem = cnt-(pagenumber-1)*pagesize;
-    res+="<div class='container'>";
-    res+="<div class='row'>";
-    var k=0;
-    var sz = data["results"].length;
-    for(i=0;i<Math.min(pagesize,rem);i++)
-    {
-      res+="<div class='col-lg-4 col-md-4 col-sm-2'>";
-      if(k>=sz) k=0;
-      res+="<img src='"+ data["results"][k++].img +"' class='panelimages'>";
-      res+="</div>";
-    }
+function renderhtml(data,cinit,pagenumber,pagesize,vediopagenumber,vediopagesize)
+{
+   var st="";
+   st+="<div class='container'>";
+   st+="<div class='row'>";
 
-    // for(i=0;i<pagesize-Math.min(pagesize,rem);i++)
-    // {
-    //   res+="<div class='col-lg-4 col-md-4 col-sm-2'>";
-    //   if(k>=sz) k=0;
-    //   res+="<img src='"+ data["results"][0].img +"' class='panelimages'>";
-    //   res+="</div>";
-    // }
-    res+="</div>"
-    res+="</div><br><br>";
+   for(i=0;i<data["results"].length;i++)
+   {
+     st+="<div class='col-lg-4 col-md-3 col-sm-6 cateimg' style='overflow: hidden;'>";
+     st+="<img src='"+ data["results"][i].img  +"'>";
+     st+="</div>";
+   }
+   st+="</div>";
+   st+="</div>";
+   st+="<center>";
+   for(i=0;i<Math.ceil(cnt/pagesize);i++)
+   {
+     if(i+1==pagenumber)
+      st+="<button class='btn btn-lg btn-primary active' value='"+(i+1)+"' onclick='request("+ cinit+","+(i+1)+","+pagesize+","+vediopagenumber+","+vediopagesize+")'>"+(i+1)+"</button>";
+    else
+      st+="<button class='btn btn-lg btn-primary ' value='"+(i+1)+"' onclick='request("+ cinit+","+(i+1)+","+pagesize+","+vediopagenumber+","+vediopagesize+")'>"+(i+1)+"</button>";
+   }
+   st+="</center>";
 
+   x.innerHTML = st;
+   fillcatebuttons(cinit,pagenumber,pagesize,vediopagenumber,vediopagesize);
 
-    res+="<h1>Vedios</h1><br><br>";
-
-           //req for vedio resource
-        var ourRequest4 = new XMLHttpRequest();
-        ourRequest4.open("GET","http://35.184.138.248:8000/video/?categoryid="+cinit+"&format=json&page="+pagenumber+"&page_size="+vediopagesize);
-        ourRequest4.onload = function(){
-          if(ourRequest4.status>=200 && ourRequest4.status<400)
-          {
-             // alert("conn established");
-             var data = JSON.parse(ourRequest4.responseText);
-             count2 = data.count;
-             // console.log(res);
-             console.log(cinit);
-                     res+=renderhtml3(data,pagenumber,vediopagesize);
-                     // console.log(res);
-             x.innerHTML = res;
-             // rendervedio(cateinit,pgno,pgsz);
-             // alert("done");
-             // renderhtml(data,pgno,pgsz);
-         }
-         else{
-          console.log("We connected to the server, but it returned an error.");
-         }
-        };
-
-        ourRequest4.onerror = function(){
-          console.log("connection error");
-        };
-
-        ourRequest4.send();
-
-
-
-        for(i=0;i<Math.ceil(cnt/pagesize);i++)
+   //filling the vedio sec
+       var ourRequest = new XMLHttpRequest();
+       ourRequest.open("GET","http://35.184.138.248:8000/video/?categoryid="+cinit+"&page="+vediopagenumber+"&page_size="+vediopagesize);
+       ourRequest.onload = function(){
+        if(ourRequest.status>=200 && ourRequest.status<400)
         {
-          if(i+1==pagenumber)
-            res+="<button class='btn btn-lg btn-primary active' onclick='req("+ cinit+ "," + (i+1)+ ","+ pagesize +","+vediopagesize+")'>" + (i+1) + "</button>";
-          else
-            res+="<button class='btn btn-lg btn-primary' onclick='req("+ cinit+ "," + (i+1)+ ","+ pagesize +","+vediopagesize+")'>" + (i+1) + "</button>";
-        }
-        res+="<br><br>";
-        // req for vedio resource
-    // x.innerHTML = res;
+         // alert("conn established");
+         var data2 = JSON.parse(ourRequest.responseText);
+         cnt3 = data2.count;
+         console.log(data2);
+         renderhtml3(data2,cinit,pagenumber,pagesize,vediopagenumber,vediopagesize);
+         // rendervedio(cateinit,pgno,pgsz,vdpgsz);
+         // alert("done");
+         // renderhtml(data,pgno,pgsz);
+       }
+       else{
+         console.log("We connected to the server, but it returned an error.");
+       }
+     };
 
-
-
-
-        // req for vedio resource
-    x.innerHTML = res;
-      // cate req
-    var st="";
-      var ourRequest2 = new XMLHttpRequest();
-      ourRequest2.open("GET","http://35.184.138.248:8000/Category?format=json");
-      ourRequest2.onload = function(){
-        if(ourRequest2.status>=200 && ourRequest2.status<400)
-        {
-         // alert("conn establishedksdhfsdhdfkjsddhfkshfsdkjfh"); 
-         var data2 = JSON.parse(ourRequest2.responseText);
-         renderhtml2(cinit,data2,pagenumber,pagesize,vediopagesize);
-
-         // for(i=0;i<data2.length;i++)
-       //        {
-       //         st+="<button class='btn btn-lg btn-secondray dib' onclick='req("+ data2[i].id+ "," +  pagenumber+ ","+ pagesize +")'></button>";
-       //        }
-              // alert("conn establishedksdhfsdhdfkjsddhfkshfsdkjfh");  
-              
-
-       //        y[0].innerHTML = st; 
-
-    }
-     else{
-      console.log("We connected to the server, but it returned an error.");
-     }
-    };
-
-    ourRequest2.onerror = function(){
+     ourRequest.onerror = function(){
       console.log("connection error");
     };
 
-    ourRequest2.send();
-
-// cate req ends
-}
-
-function  renderhtml3(data,pagenumber,vediopagesize){
-  // alert("renderhtml3 me aa gya");
-  var st="";
-  var rem  = count2-(pagenumber-1)*vediopagesize;
-  var k=0;
-  var sz=data["results"].length;
-  // console.log(data);
-  // console.log("count2 = "+count2+" sz = "+sz+" rem = "+rem);
-  // console.log(sz);
-  st+="<div class='container'>";
-  st+="<div class='row'>"
-  for(i=0;i<Math.min(rem,vediopagesize);i++)
-  {
-        if(k>=sz) k=0;
-        st+="<div class='col-lg-3 col-md-2'>";
-    st+="<iframe width='295' height='236' class='vedio' src='" + data["results"][k++].videourl + "' "+" "+" ></iframe>";
-    st+="</div>";
-  }
-
-  // for(i=0;i<vediopagesize-Math.min(rem,vediopagesize);i++)
-  //     {
-  //       st+="<div class='col-lg-3 col-md-2'>";
-  //   st+="<iframe width='295' height='236' class='vedio' src='" + data["results"][0].videourl + "' "+" "+" ></iframe>";
-  //   st+="</div>";
-  //     }
-
-    st+="</div>";
-    st+="</div>";
-
-    st+="<br><br>";
-    return st;
+    ourRequest.send();
+    //filling the vedio sec
 
 }
 
 
-function renderhtml2(cinit,data2,pagenumber,pagesize,vediopagesize){
-  // alert("iske ander aa gya");
-  // console.log("ye lo data2"+ data2);
-  var st="";
-              for(i=0;i<data2.length;i++)
-              {
-                if(cinit==data2[i].id)
-                st+="<button class='btn btn-lg btn-secondary dib active' id='"+data2[i].id+"' onclick='req("+ data2[i].id+ "," +  1+ ","+ pagesize +","+vediopagesize+")'>" +data2[i]["name"]+ "</button>";
-              else
-                st+="<button class='btn btn-lg btn-secondary dib' id='"+data2[i].id+"' onclick='req("+ data2[i].id+ "," +  1+ ","+ pagesize +","+vediopagesize+")'>" +data2[i]["name"]+ "</button>";
-              }
-              // alert("conn establishedksdhfsdhdfkjsddhfkshfsdkjfh");  
-              
-
-              y[0].innerHTML = st;  
-}
-
-function req(cinit,pagenumber,pagesize,vediopagesize)
+function renderhtml2(data,cinit,pagenumber,pagesize,vediopagenumber,vediopagesize)
 {
-  var ourRequest3 = new XMLHttpRequest();
-  ourRequest3.open("GET","http://35.184.138.248:8000/image/?categoryid="+cinit+"&format=json&page="+pagenumber+"&page_size="+pagesize);
-ourRequest3.onload = function(){
-  if(ourRequest3.status>=200 && ourRequest3.status<400)
+  var st="";
+  st+="<center>"
+   for(i=0;i<data.length;i++)
+   {
+      if(data[i].id==cinit)
+        st+="<button class='btn btn-lg btn-secondary catebtn active' id='"+(i+1)+"' onclick='request("+(i+1)+","+"1"+","+pagesize+",1,"+vediopagesize+")'>"+data[i].name+"</button>";
+      else
+        st+="<button class='btn btn-lg btn-secondary catebtn' id='"+(i+1)+"' onclick='request("+(i+1)+","+"1"+","+pagesize+",1,"+vediopagesize+")'>"+data[i].name+"</button>";
+   }
+   st+="</center>";
+
+   y.innerHTML = st;
+}
+
+function request(cinit,pagenumber,pagesize,vediopagenumber,vediopagesize)
+{
+   var ourRequest = new XMLHttpRequest();
+ourRequest.open("GET","http://35.184.138.248:8000/image/?categoryid="+cinit+"&format=json&page="+pagenumber+"&page_size="+pagesize);
+ourRequest.onload = function(){
+  if(ourRequest.status>=200 && ourRequest.status<400)
   {
      // alert("conn established");
-     var data = JSON.parse(ourRequest3.responseText);
+     var data = JSON.parse(ourRequest.responseText);
      cnt = data.count;
-     console.log(cnt+" "+cinit);
-     renderhtml(data,cateinit,pagenumber,pagesize,vediopagesize);
+     console.log(data);
+     renderhtml(data,cinit,pagenumber,pagesize,vediopagenumber,vediopagesize);
+     // rendervedio(cateinit,pgno,pgsz,vdpgsz);
      // alert("done");
      // renderhtml(data,pgno,pgsz);
   }
@@ -213,10 +126,67 @@ ourRequest3.onload = function(){
   }
 };
 
-ourRequest3.onerror = function(){
+ourRequest.onerror = function(){
   console.log("connection error");
 };
 
-ourRequest3.send();
+ourRequest.send();
+}
+// for filling vedio panel
+function renderhtml3(data,cinit,pagenumber,pagesize,vediopagenumber,vediopagesize) {
+  var st="";
+  st+="<div class='container'>";
+  st+="<div class='row'>";
+  for( i=0;i<data["results"].length;i++)
+  {
+     st+="<div class='col-lg-4 col-md-4 col-sm-6'>";
+     st+="<iframe width='300' height='215' src='"+data["results"][i].videourl+"'></iframe>";
+     st+="</div>";
+  }
+  st+="</div></div><br><br>";
+  st+="<center>";
+  for(i=0;i<Math.ceil(cnt3/vediopagesize);i++)
+  {
+     if(i+1==vediopagenumber)
+     st+="<button class='btn btn-lg btn-primary active' value='"+(i+1)+"' onclick='request("+cinit+","+pagenumber+","+pagesize+","+(i+1)+","+vediopagesize+")'>"+(i+1)+"</button>";
+     else
+     st+="<button class='btn btn-lg btn-primary' value='"+(i+1)+"' onclick='request("+cinit+","+pagenumber+","+pagesize+","+(i+1)+","+vediopagesize+")'>"+(i+1)+"</button>";
+
+  }
+  st+="</center>";
+  z.innerHTML= st;
 
 }
+
+function fillcatebuttons(cinit,pagenumber,pagesize,vediopagenumber,vediopagesize)
+{
+  // filling teh category buttons sec
+   var ourRequest = new XMLHttpRequest();
+ourRequest.open("GET","http://35.184.138.248:8000/Category?format=json", true);
+ourRequest.onload = function(){
+  if(ourRequest.status>=200 && ourRequest.status<400)
+  {
+     // alert("conn established");
+     var data2 = JSON.parse(ourRequest.responseText);
+     // cnt = data.count;
+     console.log(data2);
+     renderhtml2(data2,cinit,pagenumber,pagesize,vediopagenumber,vediopagesize);
+     // rendervedio(cateinit,pgno,pgsz,vdpgsz);
+     // alert("done");
+     // renderhtml(data,pgno,pgsz);
+  }
+  else{
+     console.log("We connected to the server, but it returned an error.");
+  }
+};
+
+ourRequest.onerror = function(){
+  console.log("connection error");
+};
+
+ourRequest.send();
+   // filling teh category buttons sec end
+
+}
+
+
