@@ -2221,7 +2221,7 @@
     }
 
 .dropdown-menu{
-    left: 106px;
+    left: auto;
     background: #ff880e;
 }
      
