@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>The Organicers</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/clients.css">
+    <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9101386b36.js" crossorigin="anonymous"></script>
+</head>
+
+<script type="text/javascript">
+    
+
+   function fun() {
+    var x = document.getElementById("signupdiv");
+    x.style.display="block";
+    x.style.position="fixed";
+    document.querySelectorAll(".clients")[0].style.display="none";
+    // var a= document.getElementsByClassName("top");
+    // a[0].style.display="none";
+    document.querySelector(".top-header").style.display="none";
+    document.querySelector(".Opening").style.display="none";
+    document.querySelector(".footer_bottom").style.display="none";
+    document.querySelector("#footer").style.display="none";
+  }
+
+  function fun2(){
+    var x = document.getElementById("logindiv");
+    x.style.display="block";
+    x.style.position="fixed";
+    document.querySelectorAll(".clients")[0].style.display="none";
+    // var a= document.getElementsByClassName("top");
+    // a[0].style.display="none";
+    document.querySelector(".top-header").style.display="none";
+    document.querySelector(".Opening").style.display="none";
+    document.querySelector(".footer_bottom").style.display="none";
+    document.querySelector("#footer").style.display="none";
+
+  }
+
+  function fun3(){
+    var x = document.getElementById("logindiv");
+    var y = document.getElementById("signupdiv");
+    x.style.display="none";
+    y.style.display="none";
+    document.querySelectorAll(".clients")[0].style.display="block";
+    // var a= document.getElementsByClassName("top");
+    // a[0].style.display="block"; 
+    document.querySelector(".top-header").style.display="block";
+    document.querySelector(".Opening").style.display="block";
+    document.querySelector(".footer_bottom").style.display="block";
+    document.querySelector("#footer").style.display="block";
+  }
+
+
+
+    function register()
+  {
+    
+    var obj = Array.from(document.querySelectorAll('#signupdiv input')).reduce((acc,input)=>({...acc,[input.name]:input.value}),{});
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://35.184.138.248.xip.io:8000/rest-auth/registration/", true); 
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.onload = function(){
+      console.log(xhttp);
+      if(xhttp.status>=200 && xhttp.status<400)
+      {
+        
+         console.log(JSON.parse(xhttp.response));
+        fun3();
+        alert(" Congo!! Verification mail has been sent to your registered mail-id.");
+        // alert(obj2.detail); 
+     }
+     else{
+       console.log("We connected to the server, but it returned an error.");
+       var obj2 = JSON.parse(xhttp.responseText);
+       console.log(obj2);
+       var msg="";
+       // these all are the errors
+       if("username" in obj2)
+        msg+=obj2["username"]+"\n";
+       if("email" in obj2)
+        msg+=obj2["email"]+"\n";
+       if("password1" in obj2)
+        msg+=obj2["password1"]+"\n";
+       if("non_field_errors" in obj2)
+        msg+=obj2["non_field_errors"];
+      alert(msg);
+     }
+   };
+   xhttp.send(JSON.stringify(obj));
+ }
+
+
+
+
+ function signin(){
+    var obj = Array.from(document.querySelectorAll('#logindiv input')).reduce((acc,input)=>({...acc,[input.name]:input.value}),{});
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://35.184.138.248.xip.io:8000/rest-auth/login/", true); 
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.onload = function(){
+      console.log(xhttp);
+      if(xhttp.status>=200 && xhttp.status<400)
+      {
+        
+         console.log(JSON.parse(xhttp.response));
+        // fun3();
+        // localStorage.removeItem("auth");
+        localStorage.clear();
+        var x = JSON.parse(xhttp.responseText).key;
+         localStorage.setItem("auth", x);
+        var username = obj.username;
+        localStorage.setItem("userid", username);
+
+        alert("welcome");
+        window.location.href="index.html";
+        // alert(obj2.detail); 
+     }
+     else{
+       console.log("We connected to the server, but it returned an error.");
+       var obj2 = JSON.parse(xhttp.responseText);
+       alert(obj2["non_field_errors"]);
+       console.log(obj2["non_field_errors"]);
+     }
+   };
+   xhttp.send(JSON.stringify(obj));
+
+ }  
+
+  function profile()
+  {
+     window.location.href="events.html";
+  }
+
+  function logout()
+  {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://35.184.138.248.xip.io:8000/rest-auth/logout/", true); 
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.onload = function(){
+      // console.log(xhttp);
+      if(xhttp.status>=200 && xhttp.status<400)
+      {
+        
+         console.log("you are logged out");
+         // alert("you are logged out");
+         localStorage.clear();
+         alert("You have successfully logged out!");
+         window.location.href="index.html";
+     }
+     else{
+       console.log("We connected to the server, but it returned an error.");
+       // var obj2 = JSON.parse(xhttp.responseText);
+       // alert(obj2["non_field_errors"]);
+       // console.log(obj2["non_field_errors"]);
+     }
+   };
+   xhttp.send();
+  }
+  </script>
+
+
+
+
+<body>
+
+ <!-- this is for login -->
+   <div class="login" id="logindiv">
+    <i class="fas fa-times-circle closebtn" onclick="fun3()"></i>
+   <div class="containerlogin">
+    <h1>LOGIN</h1>
+    <form action="signup.php" method="post" id="loginform">
+      <div class="tbox">
+        <input type="text" placeholder="username" value="" name="username" required>
+      </div>
+      <div class="tbox">
+        <input type="password" placeholder="password" value="" name="password" required>
+      </div>
+      <input class="btnlogin" type="button" name="c" value="Submit" onclick="signin()">
+    </form>
+    <a class="btn btn-lg btn-secondary" href="preset.html">Forgot Password?</a>
+    <!-- <center><p style="color: black;">Or..</p></center> -->
+    <!-- these are other login options -->
+   <!--  <i class="fab fa-facebook loginicons1"></i>
+    <i class="fas fa-envelope-square loginicons2"></i>
+    <i class="fab fa-google-plus-g loginicons3"></i> -->
+  </div>
+  </div>
+
+
+
+
+   <!-- this is for login -->
+
+
+
+    <!-- this is for signup -->
+
+    <div class="signup" id="signupdiv">
+
+       <i class="fas fa-times-circle closebtn" onclick="fun3()"></i>
+      
+       <div class="box">
+            <h2>Signup</h2>
+            
+            <form action=""  method="POST" id="contactForm">
+
+                <div class="inputbox">
+                    <input type="text" name="username" required>
+                    <label>Username</lable>
+                </div>
+                <div class="inputbox">
+                    <input type="email" name="email" required>
+                    <label>Email</lable>
+                </div>
+                <div class="inputbox">
+                    <input type="password" name="password1" required>
+                    <label>Password<small style="font-size: 10px;">(along with country code)</small></lable>
+                </div>
+                <div class="inputbox">
+                    <input type="password" name="password2" required>
+                    <label>Confirm Password</lable>
+                    
+                </div>
+                <input type="button" class="btn btn-lg btn-primary" name="submit" value="Submit" onclick="register()">
+                <br>
+                <div class="inputbox">
+                    <label></lable>
+                    <span class="error" > </span>     
+                        <br>
+                    <span class="error" > </span>     
+                        <br>
+                    <span class="error" > </span>     
+                        <br>
+                    <span class="error" > </span>    
+                        <br>
+                    <span class="error" > </span>     
+                </div>
+            </form>
+        </div>
+      
+    </div>
+
+
+
+    <!-- this is for login/signup -->
+
+
+
+
+
+
+
+
+
+
+    <!--  ---------------- navbar starts ----------------- -->
+
+    <header class="top-header" >
+        <div class="header_top">
+            
+            <div class="container">
+                <div class="row">
+                    <div class="logo_section">
+                        <a class="navbar-brand" href="index.html"><img src="images/merge.png" alt="image" style="position: relative;width: 150px;height: 110px;"></a>
+                    </div>
+                    <div class="site_information">
+                        <ul>
+                            <li><a class="contact_details" href="mailto:exchang@gmail.com"><img src="images/mail_icon.png" alt="#">   akram@theorganicers.com</a></li>
+                            <li><a class="contact_details" href="tel:exchang@gmail.com"><img src="images/phone_icon.png" alt="#">   +91-9508226093</a></li>
+                            <li><a class="join_bt" href="#" onclick="fun();">Sign Up</a></li>
+                            <li><a class="join_bt" href="#" onclick="fun2();">Login</a></li>
+                            <li><a class="join_bt" href="#" onclick="profile()" style="display: none;" onclick="">My Profile</a></li>
+                            <li><a class="join_bt" href="#" onclick="logout()" style="display: none;" onclick="">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+        <div class="header_bottom">
+          
+            <div class="col-sm-12">
+                <div class="menu_orange_section" style="background: #ff880e;">
+                   <nav class="navbar header-nav navbar-expand-lg"> 
+                     <div class="menu_section">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
+                    <ul class="navbar-nav">
+                        <li><a class="nav-link active" href="index.html">Home</a></li>
+                        <li><a class="nav-link" href="aboutus/index.html">About Us</a></li>
+                        <li>
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Events and Services
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="left: auto; background: #ff880e;">
+                            <a class="dropdown-item" href="eventsandservices/artist.html">Artistic Events</a>
+                            <a class="dropdown-item" href="eventsandservices/birthdays.html">Birthdays</a>
+                            <a class="dropdown-item" href="eventsandservices/corporate.html">Corporate Events</a>
+                            <a class="dropdown-item" href="eventsandservices/cycling.html">Cycling</a>
+                            <a class="dropdown-item" href="eventsandservices/promotional.html">Promotional Events</a>
+                            <a class="dropdown-item" href="eventsandservices/wedding.html">Weddings</a>
+                          </div>
+                        </li>
+                        <li><a class="nav-link" href="clients.html">Our Clients</a></li>
+                        <li><a class="nav-link" href="portfolio/index.html">Portfolio</a></li>
+                        <li><a class="nav-link" href="testimonial/index.html">Testimonials</a></li>
+                        <li><a class="nav-link" href="contactus/index.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                     </div>
+                 </nav>
+            
+                </div>
+            </div>
+          
+        </div>
+        
+    </header>
+
+   <!-- navbar ends -->
+
+   <!-- Start Banner -->
+
+    <!-- <div class="section inner_page_banner">
+        
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading_main text_align_center">                     
+                        <h3><span class="theme_color"></span>Corporate Events</h3>    
+                    </div>
+                </div>
+            </div>
+       
+    </div> -->
+
+
+    <div class="jumbotron Opening" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQuUI-5SuO9mjo0QNXEkQZMoYgANoh37OjFWw&usqp=CAU);background-size: cover; background-repeat: no-repeat; background-position: center; ">
+
+        <center>
+          <div class="row d-flex justify-content-center">
+            <div class="content">
+                <div style="font-family: 'Yellowtail', cursive;   font-size: 75px; letter-spacing: 0.2rem; margin-bottom: 0; color: white">Our Clients</div>
+          
+            </div>  
+          </div> 
+        </center>
+
+    </div>
+
+    <!-- End Banner -->
+
+
+    
+    <!-- ---------------------- Clients ------------------------ -->
+
+      <div class="container clients" style="padding-bottom: 200px; padding-top: 100px;">
+        <div class="row justify-content-center">
+          <div class="col-md-3">
+            <img src="images/client_logo1.jpg" class="img-responsive" style="width:100%;">
+          </div>
+
+          <div class="col-md-3">
+            <img src="images/client_logo2.jpg" class="img-responsive" style="width:100%;">
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+    <!-- ---------------------- Clients End ------------------------ -->
+
+
+
+
+
+
+
+
+
+
+
+    <!-- footer begins -->
+   <section id="footer" style="background-color: #e9ecef; padding-top: 70px; padding-bottom: 70px;">
+    <footer class="page-footer font-small indigo slideanim">
+      <div class="container text-center text-md-left">
+        <div class="row">
+          <div class="col-md-8">
+              <img src="images/merge.png" style="position: relative; height: 110px; width: 150px;">
+          </div>
+          <div class="col-md-2" style="padding-top: 30px;">
+              <button type="button" class="btn btn-dark btn-lg dbtn"><i class="fab fa-apple"></i>&nbsp;Download</button>
+          </div>
+          <div class="col-md-2" style="padding-top: 30px;">
+              <button type="button" class="btn btn-dark btn-lg   dbtn"><i class="fab fa-google-play"></i>&nbsp;Download</button>
+          </div>
+        </div>
+        
+        <!-- Grid row -->
+        <div class="row">
+
+          <!-- Grid column -->
+          <div class="col-md-3 mx-auto">
+            
+            <!-- Links -->
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4" style="font-size: 15px;">GET TO KNOW US</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">ABOUT US</a>
+              </li>
+              <li>
+                <a href="#!">TERMS AND CONDITIONS</a>
+              </li>
+              <li>
+                <a href="#!">REFUND POLICY</a>
+              </li>
+              <li>
+                <a href="#!">PRIVACY POLICY</a>
+              </li>
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+          <hr class="clearfix w-100 d-md-none">
+
+          <!-- Grid column -->
+          <div class="col-md-3 mx-auto">
+
+            <!-- Links -->
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4" style="font-size: 15px;">HELP</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">FAQs</a>
+              </li>
+              <li>
+                <a href="#!">CONTACT US</a>
+              </li>
+              <li>
+                <a href="#!">VENDOR CONNECT</a>
+              </li>
+              <!-- <li>
+                <a href="#!"></a>
+              </li> -->
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- <hr class="clearfix w-100 d-md-none"> -->
+
+
+          <hr class="clearfix w-100 d-md-none">
+
+          <!-- Grid column -->
+          <div class="col-md-3 mx-auto">
+
+            <!-- Links -->
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4" style="font-size: 15px;">CONNECT WITH US</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">FACEBOOK</a>
+              </li>
+              <li>
+                <a href="#!">INSTAGRAM</a>
+              </li>
+              <li>
+                <a href="#!">LINKEDIN</a>
+              </li>
+              <li>
+                <a href="#!">TWITTER</a>
+              </li>
+            </ul>
+
+          </div>
+
+
+          <hr class="clearfix w-100 d-md-none">
+
+
+
+
+
+
+          <!-- Grid column -->
+          <div class="col-md-3 mx-auto">
+
+            <!-- Links -->
+            <h4 class="font-weight-bold text-uppercase mt-3 mb-4" style="font-size: 15px; color: black;">REGISTERED ADDRESS</h4>
+            <!-- <h4>Registered Address</h4> -->
+            <p class="card-text" style="word-wrap: anywhere; font-size: 15px; color: black;">APKRITMY Pvt. Ltd.<br>Argora Bypass Road<br>
+              Shivdayal Harmu Housing Colony,
+              <br>Ranchi, Jharkhand<br>
+            CIN:U74993JH2018PTC011404</p>
+            
+
+          </div>
+          <!-- Grid column -->
+
+          
+          <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+      </div>
+      <!-- Footer Links -->
+
+    </footer>
+   </section>
+
+</div>
+   <!-- Copyright -->
+        <div class="footer_bottom" style="background-color: black; color: grey; height: 70px; padding-top: 20px;">
+          <div class="container">
+              <div class="row d-flex" style="justify-content:space-between;">
+                      <span>© 2019 Business . All Rights Reserved. </span>
+                      <span class="bottom_menu">Terms of Service</span>
+                      <span class="bottom_menu">Privacy</span>
+                      
+              </div>
+          </div>
+        </div>
+      <!-- Copyright -->
+
+<!-- footer ends -->
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <script>
+
+
+
+
+var auth = localStorage.getItem("auth");
+  if(auth!=null)
+  {
+    document.querySelectorAll(".join_bt")[0].style.display="none";
+    document.querySelectorAll(".join_bt")[1].style.display="none";
+    document.querySelectorAll(".join_bt")[2].style.display="block";
+    document.querySelectorAll(".join_bt")[3].style.display="block";
+     
+  }
+
+
+
+
+    (function($) {
+    "use strict";
+  
+
+  /* ..............................................
+    Fixed Menu
+    ................................................. */
+    
+  $(window).on('scroll', function () {
+    if ($(window).scrollTop() > 50) {
+      $('.top-header').addClass('fixed-menu');
+    } else {
+      $('.top-header').removeClass('fixed-menu');
+    }
+  });
+
+}(jQuery));
+
+
+    $(function () {
+      $(document).scroll(function () {
+        var $nav = $("#mainNavbar");
+        $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+      });
+    });
+
+
+
+     $(document).ready(function(){
+    $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+  });
+  });
+});
+
+  </script>
+
+
+
+</body>
+</html>
