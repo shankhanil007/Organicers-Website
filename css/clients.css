@@ -64,7 +64,7 @@ a {
 
 a:hover
 {
-	color: #ff880e;
+	color: #9f7e29;
 }
 
 a,
@@ -124,7 +124,7 @@ button:focus {
 }
 
 a.join_bt {
-    background: #ff880e;
+    background: #9f7e29;
     width: 150px;
     text-align: center;
     height: 38px;
@@ -264,7 +264,7 @@ a.navbar-brand {
     display: block;
     right: 0;
     content: "";
-    background: #ff880e;
+    background: #9f7e29;
     height: 60px;
     position: absolute;
     top: 0;
@@ -375,7 +375,7 @@ a.navbar-brand {
     position: relative;
     content: "";
     display: block;
-    background: #ff880e;
+    background: #9f7e29;
     left: -35px;
     transform: skew(30deg);
 
@@ -565,7 +565,7 @@ padding: 7px 15px;
     display: block;
     right: 0;
     content: "";
-    background: #ff880e;
+    background: #9f7e29;
     height: 66px;
     position: absolute;
     top: 0;
@@ -585,7 +585,7 @@ padding: 7px 15px;
     position: relative;
     content: "";
     display: block;
-    background: #ff880e;
+    background: #9f7e29;
     left: -50px;
     transform: skew(30deg);
     display: none;
@@ -963,7 +963,7 @@ padding: 7px 15px;
 .heading_main h3::after {
     width: 320px;
     height: 8px;
-    background: #ff880e;
+    background: #9f7e29;
     content: "";
     display: block;
     transform: skew(-30deg);
@@ -988,7 +988,7 @@ padding: 7px 15px;
 .heading_main h2::after {
     width: 150px;
     height: 8px;
-    background: #ff880e;
+    background: #9f7e29;
     content: "";
     display: block;
     transform: skew(-30deg);
@@ -1011,7 +1011,7 @@ p {
     float: left;
     text-align: center;
     line-height: 55px;
-    border: solid #ff880e 1px;
+    border: solid #9f7e29 1px;
     font-size: 18px;
     margin-top: 10px;
     background: #fff;
@@ -1065,7 +1065,7 @@ p {
 .heading_main h1::after {
     width: 280px;
     height: 8px;
-    background: #ff880e;
+    background: #9f7e29;
     content: "";
     display: block;
     transform: skew(-30deg);

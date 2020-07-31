@@ -329,7 +329,7 @@ button:focus {
 }
 
 a:hover,a:focus {
-    color: #ff880e;
+    color: #9f7e29;
     text-decoration: underline;
 }
 
@@ -356,7 +356,7 @@ a:hover,a:focus {
 }
 
 a.join_bt {
-    background: #ff880e;
+    background: #9f7e29;
     width: 180px;
     text-align: center;
     height: 38px;
@@ -491,7 +491,7 @@ a.navbar-brand {
     display: block;
     right: 0;
     content: "";
-    background: #ff880e;
+    background: #9f7e29;
     height: 60px;
     position: absolute;
     top: 0;
@@ -590,7 +590,7 @@ a.navbar-brand {
 }
 
 .theme_color {
-	color: #ff880e;
+	color: #9f7e29;
 }
 
 .menu_orange_section {
@@ -606,7 +606,7 @@ a.navbar-brand {
     position: relative;
     content: "";
     display: block;
-    background: #ff880e;
+    background: #9f7e29;
     left: -35px;
     transform: skew(30deg);
 
@@ -618,7 +618,7 @@ a.navbar-brand {
     float: left;
     text-align: center;
     line-height: 55px;
-    border: solid #ff880e 1px;
+    border: solid #9f7e29 1px;
     font-size: 18px;
     margin-top: 10px;
     background: #fff;
@@ -722,7 +722,7 @@ a.navbar-brand {
 }
 
 .pogoSlider-nav-btn--selected {
-	background: #ff880e !important;
+	background: #9f7e29 !important;
 }
 
 .pogoSlider--navBottom .pogoSlider-nav {
@@ -1964,7 +1964,7 @@ p {
 .heading_main h2::after {
     width: 250px;
     height: 8px;
-    background: #ff880e;
+    background: #9f7e29;
     content: "";
     display: block;
     transform: skew(-30deg);
@@ -2211,7 +2211,7 @@ ul.social_icon li {
     position: absolute;
     left: 0;
     bottom: 0;
-    background: #ff880e;
+    background: #9f7e29;
     padding: 15px 0 5px;
     text-align: center;
     transition: ease all 0.25s;
