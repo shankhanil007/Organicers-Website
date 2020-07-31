@@ -37,6 +37,12 @@ opacity: 1;
 }
 }
 
+/*@media (min-width: 1200px) {
+.container {
+    width: 2140px;
+    background-color: black;
+}*/
+
 
 /* ------------------------------------------  slide in feature ends----------------------------------------*/
 
@@ -140,7 +146,7 @@ opacity: 1;
     display: block;
     right: 0;
     content: "";
-    background: #ff880e;
+    background: #9f7e29;
     height: 60px;
     position: absolute;
     top: 0;
@@ -203,7 +209,7 @@ opacity: 1;
 }
 
 a.join_bt {
-        background: #ff880e;
+        background: #9f7e29;
         width: 150px;
         text-align: center;
         height: 38px;
@@ -251,10 +257,7 @@ a.join_bt {
 }
 
 
-.container{
-    max-width: 1000px;
-    margin: auto;
-}
+
 
 .logo_section {
     width: 10%;
@@ -279,7 +282,7 @@ a.navbar-brand {
     position: relative;
     content: "";
     display: block;
-    background: #ff880e;
+    background: #9f7e29;
     left: -35px;
     transform: skew(30deg);
 
@@ -322,7 +325,7 @@ a.navbar-brand {
 .heading_main h2::after {
     width: 150px;
     height: 8px;
-    background: #ff880e;
+    background: #9f7e29;
     content: "";
     display: block;
     transform: skew(-30deg);
@@ -389,7 +392,7 @@ a.navbar-brand {
     display: block;
     right: 0;
     content: "";
-    background: #ff880e;
+    background: #9f7e29;
     height: 66px;
     position: absolute;
     top: 0;
@@ -409,7 +412,7 @@ a.navbar-brand {
     position: relative;
     content: "";
     display: block;
-    background: #ff880e;
+    background: #9f7e29;
     left: -50px;
     transform: skew(30deg);
     display: none;
@@ -618,7 +621,7 @@ footer.footer-box p {
 .heading_main h1::after {
     width: 280px;
     height: 8px;
-    background: #ff880e;
+    background: #9f7e29;
     content: "";
     display: block;
     transform: skew(-30deg);
@@ -650,7 +653,7 @@ footer.footer-box p {
 .heading_main h3::after {
     width: 230px;
     height: 8px;
-    background: #ff880e;
+    background: #9f7e29;
     content: "";
     display: block;
     transform: skew(-30deg);

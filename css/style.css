@@ -88,7 +88,7 @@
     }
 
     a.join_bt {
-        background: #ff880e;
+        background: #9f7e29;
         width: 150px;
         text-align: center;
         height: 38px;
@@ -228,7 +228,7 @@
         display: block;
         right: 0;
         content: "";
-        background: #ff880e;
+        background: #9f7e29;
         height: 60px;
         position: absolute;
         top: 0;
@@ -339,7 +339,7 @@
         position: relative;
         content: "";
         display: block;
-        background: #ff880e;
+        background: #9f7e29;
         left: -35px;
         transform: skew(30deg);
 
@@ -529,7 +529,7 @@
         display: block;
         right: 0;
         content: "";
-        background: #ff880e;
+        background: #9f7e29;
         height: 66px;
         position: absolute;
         top: 0;
@@ -549,7 +549,7 @@
         position: relative;
         content: "";
         display: block;
-        background: #ff880e;
+        background: #9f7e29;
         left: -50px;
         transform: skew(30deg);
         display: none;
@@ -910,7 +910,7 @@
     .heading_main h2::after {
         width: 250px;
         height: 8px;
-        background: #ff880e;
+        background: #9f7e29;
         content: "";
         display: block;
         transform: skew(-30deg);
@@ -922,7 +922,7 @@
         height: 55px;
         text-align: center;
         line-height: 55px;
-        border: solid #ff880e 1px;
+        border: solid #9f7e29 1px;
         font-size: 18px;
         margin-top: 10px;
         background: #fff;
@@ -936,7 +936,7 @@
       font-family: 'Roboto', sans-serif;
     }
     a:hover{
-      color:#ff880e;
+      color:#9f7e29;
       text-decoration: none; 
     }
 
@@ -1653,9 +1653,9 @@
 
     .team_member_img .social_icon_team {
         position: absolute;
-        top: 19px;
-        left: 40px;
-        width: 76%;
+        top: 21px;
+        left: 130px;
+        width: 50%;
         height: 87%;
         display: flex;
         justify-content: center;
@@ -1820,13 +1820,14 @@
     }
 
     ul.social_icon li a {
-        width: 35px;
-        height: 35px;
+        width: 60px;
+        height: 60px;
         background: #fff;
         float: left;
         border-radius: 100%;
         text-align: center;
-        font-size: 16px;
+        font-size: 25px;
+        padding-top: 10px;
     }
 
     ul.social_icon li {
@@ -2222,6 +2223,19 @@
 
 .dropdown-menu{
     left: auto;
-    background: #ff880e;
+    background: #9f7e29;
 }
      
+
+
+
+.carousel-caption
+{
+    background-color: rgba(248, 247, 216, 0.1);
+    position: absolute;
+    top: 37px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-family: cambria;
+}

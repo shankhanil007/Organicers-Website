@@ -86,7 +86,7 @@ button:focus {
 }
 
 a.join_bt {
-    background: #ff880e;
+    background: #9f7e29;
     width: 150px;
     text-align: center;
     height: 38px;
@@ -226,7 +226,7 @@ a.navbar-brand {
     display: block;
     right: 0;
     content: "";
-    background: #ff880e;
+    background: #9f7e29;
     height: 60px;
     position: absolute;
     top: 0;
@@ -337,7 +337,7 @@ a.navbar-brand {
     position: relative;
     content: "";
     display: block;
-    background: #ff880e;
+    background: #9f7e29;
     left: -35px;
     transform: skew(30deg);
 
@@ -527,7 +527,7 @@ padding: 7px 15px;
     display: block;
     right: 0;
     content: "";
-    background: #ff880e;
+    background: #9f7e29;
     height: 66px;
     position: absolute;
     top: 0;
@@ -547,7 +547,7 @@ padding: 7px 15px;
     position: relative;
     content: "";
     display: block;
-    background: #ff880e;
+    background: #9f7e29;
     left: -50px;
     transform: skew(30deg);
     display: none;
@@ -904,7 +904,7 @@ padding: 7px 15px;
 .heading_main h3::after {
     width: 150px;
     height: 8px;
-    background: #ff880e;
+    background: #9f7e29;
     content: "";
     display: block;
     transform: skew(-30deg);
