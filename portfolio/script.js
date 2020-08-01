@@ -40,8 +40,10 @@ function renderhtml(data,cinit,pagenumber,pagesize,vediopagenumber,vediopagesize
 
    for(i=0;i<data["results"].length;i++)
    {
-     st+="<div class='col-lg-4 col-md-3 col-sm-6 cateimg' style='overflow: hidden;'>";
-     st+="<img src='"+ data["results"][i].img  +"'>";
+     st+="<div class='col-lg-4 col-md-3 col-sm-6 ' style='overflow: hidden;'>";
+     st+="<div class='cateimg'>";
+     st+="<img src='"+ data["results"][i].img  +"' style='width: 100%; height: 100%;'>";
+     st+="</div>";
      st+="</div>";
    }
    st+="</div>";
